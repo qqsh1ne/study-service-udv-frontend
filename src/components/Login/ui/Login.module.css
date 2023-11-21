@@ -1,0 +1,19 @@
+.wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.container {
+  width: 340px;
+}
+
+.pass {
+  display: flex;
+  justify-content: space-between;
+}
+
+.inputs {
+  text-align: start;
+}
+
+/*# sourceMappingURL=Login.module.css.map */
