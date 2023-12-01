@@ -1,11 +1,11 @@
-import FullCalendar from '@fullcalendar/react'
-
-const Calendar = () => {
+import { Calendar } from 'antd'
+import cls from './Calendar.module.scss'
+const Calendar1 = () => {
 	return (
-		<div>
-			<FullCalendar />
+		<div className={cls.wrapper}>
+			<Calendar />
 		</div>
 	)
 }
 
-export default Calendar
+export default Calendar1
