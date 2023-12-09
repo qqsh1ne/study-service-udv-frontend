@@ -1,0 +1,120 @@
+@import "../../../../consts";
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 92px;
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  color: $text-primary;
+  padding: 0 24px;
+}
+
+.flexWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  gap: 8px;
+
+  h2 {
+    font-size: 20px;
+    line-height: 22px;
+  }
+
+  p {
+    display: flex;
+    background-color: #C5FFED;
+    color: #00A87B;
+    padding: 2px 8px;
+    border-radius: 16px;
+    font-size: 12px;
+    line-height: 15px;
+    text-align: center;
+    align-items: center;
+  }
+}
+
+.searchIcon {
+  width: 18px;
+  height: 18px;
+  background-image: url("../../../../assets/search-icon.svg");
+  background-repeat: no-repeat;
+}
+
+.searchField {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 300px;
+  height: 38px;
+  border: 1px solid $disabled;
+  border-radius: 1px;
+  padding: 10px 12px;
+  margin-right: 12px;
+
+  input {
+    border: none;
+    font-size: 14px;
+    line-height: 18px;
+    width: 100%;
+    background-color: transparent;
+
+    &::placeholder {
+      color: #AFB0B0;
+    }
+  }
+}
+
+.filterBtn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 137px;
+  height: 46px;
+  background-color: transparent;
+  border: 1px solid $disabled;
+  border-radius: 1px;
+  padding: 14px 21px;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 500;
+  margin-right: 16px;
+}
+
+.excelBtn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 209px;
+  height: 52px;
+  padding: 16px 24px;
+  color: #fff;
+  border-radius: 1px;
+  border: 0;
+  background-color: $button-default;
+
+  &:hover {
+    background-color: $button-hover;
+  }
+
+  &:active {
+    background-color: $button-active;
+  }
+
+  &:disabled {
+    background-color: $disabled;
+  }
+
+  img {
+    color: red;
+  }
+}
+
+.filterBtn, .excelBtn {
+  cursor: pointer;
+}
