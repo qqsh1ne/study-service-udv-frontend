@@ -522,7 +522,7 @@
   resolved "https://registry.yarnpkg.com/@mui/types/-/types-7.2.9.tgz#730ee83a37af292a5973962f78ce5c95f31213a7"
   integrity sha512-k1lN/PolaRZfNsRdAqXtcR71sTnv3z/VCCGPxU8HfdftDkzi335MdJ6scZxvofMAd/K/9EbzCZTFBmlNpQVdCg==
 
-"@mui/utils@^5.14.16", "@mui/utils@^5.14.18":
+"@mui/utils@^5.14.18":
   version "5.14.18"
   resolved "https://registry.yarnpkg.com/@mui/utils/-/utils-5.14.18.tgz#d2a46df9b06230423ba6b6317748b27185a56ac3"
   integrity sha512-HZDRsJtEZ7WMSnrHV9uwScGze4wM/Y+u6pDVo+grUjt5yXzn+wI8QX/JwTHh9YSw/WpnUL80mJJjgCnWj2VrzQ==
@@ -531,17 +531,6 @@
     "@types/prop-types" "^15.7.10"
     prop-types "^15.8.1"
     react-is "^18.2.0"
-
-"@mui/x-data-grid@^6.18.1":
-  version "6.18.1"
-  resolved "https://registry.yarnpkg.com/@mui/x-data-grid/-/x-data-grid-6.18.1.tgz#0b34d7aebd5d8319524f78c9078dcc57becf06f0"
-  integrity sha512-ibsrWwzM2lRRWB1xs/eop63kaxlXH/qar1S1rQx3fycJiYvK6fsM72jsScBNRlRZQQwRVSGI0ZPBsOZ+/tg7Qw==
-  dependencies:
-    "@babel/runtime" "^7.23.2"
-    "@mui/utils" "^5.14.16"
-    clsx "^2.0.0"
-    prop-types "^15.8.1"
-    reselect "^4.1.8"
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
@@ -723,6 +712,18 @@
   version "0.1.5"
   resolved "https://registry.npmjs.org/@swc/types/-/types-0.1.5.tgz"
   integrity sha512-myfUej5naTBWnqOCc/MdVOLVjXUXtIA+NpDrDBKJtLLg2shUjBu3cZmB/85RyitKc55+lUUyl7oRfLOvkr2hsw==
+
+"@tanstack/react-table@^8.10.7":
+  version "8.10.7"
+  resolved "https://registry.yarnpkg.com/@tanstack/react-table/-/react-table-8.10.7.tgz#733f4bee8cf5aa19582f944dd0fd3224b21e8c94"
+  integrity sha512-bXhjA7xsTcsW8JPTTYlUg/FuBpn8MNjiEPhkNhIGCUR6iRQM2+WEco4OBpvDeVcR9SE+bmWLzdfiY7bCbCSVuA==
+  dependencies:
+    "@tanstack/table-core" "8.10.7"
+
+"@tanstack/table-core@8.10.7":
+  version "8.10.7"
+  resolved "https://registry.yarnpkg.com/@tanstack/table-core/-/table-core-8.10.7.tgz#577e8a635048875de4c9d6d6a3c21d26ff9f9d08"
+  integrity sha512-KQk5OMg5OH6rmbHZxuNROvdI+hKDIUxANaHlV+dPlNN7ED3qYQ/WkpY2qlXww1SIdeMlkIhpN/2L00rof0fXFw==
 
 "@types/hoist-non-react-statics@^3.3.0", "@types/hoist-non-react-statics@^3.3.1":
   version "3.3.5"
@@ -1194,14 +1195,9 @@ csstype@^3.0.10, csstype@^3.0.2, csstype@^3.1.2:
   resolved "https://registry.npmjs.org/csstype/-/csstype-3.1.2.tgz"
   integrity sha512-I7K1Uu0MBPzaFKg4nI5Q7Vs2t+3gWWW648spaF+Rg7pI9ds18Ugn+lvg4SHczUdKlHI5LWBXyqfS8+DufyBsgQ==
 
-dayjs@^1.11.1:
+dayjs@^1.11.1, dayjs@^1.11.10:
   version "1.11.10"
   resolved "https://registry.npmjs.org/dayjs/-/dayjs-1.11.10.tgz"
-  integrity sha512-vjAczensTgRcqDERK0SR2XMwsF/tSvnvlv6VcF2GIhg6Sx4yOIt/irsr1RDJsKiIyBzJDpCoXiWWq28MqH2cnQ==
-
-dayjs@^1.11.10:
-  version "1.11.10"
-  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.11.10.tgz#68acea85317a6e164457d6d6947564029a6a16a0"
   integrity sha512-vjAczensTgRcqDERK0SR2XMwsF/tSvnvlv6VcF2GIhg6Sx4yOIt/irsr1RDJsKiIyBzJDpCoXiWWq28MqH2cnQ==
 
 debug@^4.1.1, debug@^4.3.2, debug@^4.3.4:
@@ -2318,7 +2314,7 @@ redux@^4.0.0, redux@^4.2.1:
 
 regenerator-runtime@^0.14.0:
   version "0.14.0"
-  resolved "https://registry.npmjs.org/regenerator-runtime/-/regenerator-runtime-0.14.0.tgz"
+  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.14.0.tgz#5e19d68eb12d486f797e15a3c6a918f7cec5eb45"
   integrity sha512-srw17NI0TUWHuGa5CFGGmhfNIeja30WMBfbslPNhf6JrqQlLN5gcrvig1oqPxiVaXb0oW0XRKtH6Nngs5lKCIA==
 
 reselect@^4.1.8:
