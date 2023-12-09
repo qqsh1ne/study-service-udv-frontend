@@ -5,7 +5,7 @@ const MAX_ITEMS_PER_LINE = 7;
 
 const TablePagination: React.FC<{ rowsCount: number }> = ({rowsCount}) => {
     const [currentScreen, setCurrentScreen] = useState(1);
-    const screensCount = rowsCount % 10 == 0 ? rowsCount / 10 : rowsCount / 10 + 1;
+    const screensCount = Math.ceil(rowsCount/10)
 
     return (
         <div className={styles.pagination}>

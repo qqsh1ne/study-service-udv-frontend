@@ -5,6 +5,8 @@ import {useState} from "react";
 import styles from './Table.module.scss'
 import TableHeader from "../TableHeader/ui/TableHeader.tsx";
 import TablePagination from "../TablePagination/ui/TablePagination.tsx";
+import EditableCell from "../EditableCell/ui/EditableCell.tsx";
+import SelectCell from "../SelectCell/ui/SelectCell.tsx";
 
 const columns = [
     {
@@ -14,42 +16,42 @@ const columns = [
     {
         accessorKey: 'id',
         header: '№ заявки',
-        cell: (props) => <p className={styles.cellValue}>{props.getValue()}</p>
+        cell: EditableCell
     },
     {
         accessorKey: 'studyCentre',
         header: 'Учебный центр',
-        cell: (props) => <p className={styles.cellValue}>{props.getValue()}</p>
+        cell: EditableCell
     },
     {
         accessorKey: 'course',
         header: 'Курс',
-        cell: (props) => <p className={styles.cellValue}>{props.getValue()}</p>
+        cell: EditableCell
     },
     {
         accessorKey: 'type',
         header: 'Тип',
-        cell: (props) => <p className={styles.cellValue}>{props.getValue()?.name}</p>
+        cell: SelectCell,
     },
     {
         accessorKey: 'member',
         header: 'Участники',
-        cell: (props) => <p className={styles.cellValue}>{props.getValue()}</p>
+        cell: EditableCell
     },
     {
         accessorKey: 'department',
         header: 'Департамент',
-        cell: (props) => <p className={styles.cellValue}>{props.getValue()}</p>
+        cell: EditableCell
     },
     {
         accessorKey: 'team',
         header: 'Отдел/команда',
-        cell: (props) => <p className={styles.cellValue}>{props.getValue()}</p>
+        cell: EditableCell
     },
     {
         accessorKey: 'legalPerson',
         header: 'ЮЛ',
-        cell: (props) => <p className={styles.cellValue}>{props.getValue()}</p>
+        cell: EditableCell
     },
     {
         accessorKey: 'startDate',
@@ -64,12 +66,12 @@ const columns = [
     {
         accessorKey: 'price',
         header: 'Стоимость на 1 чел.',
-        cell: (props) => <p className={styles.cellValue}>{props.getValue()}</p>
+        cell: EditableCell
     },
     {
         accessorKey: 'direction',
         header: 'Направление обучения',
-        cell: (props) => <p className={styles.cellValue}>{props.getValue()?.name}</p>
+        cell: SelectCell,
     },
     {
         accessorKey: 'icons',
@@ -84,10 +86,7 @@ const Table: React.FC = () => {
         getCoreRowModel: getCoreRowModel()
     });
 
-    const getCheckBox = () =>
-        (
-            <input type="checkbox"/>
-        )
+    const getCheckBox = () =>(<input type="checkbox"/>)
     console.log(table.getHeaderGroups())
     return (
         <div className={styles.wrapper}>

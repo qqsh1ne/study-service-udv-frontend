@@ -59,3 +59,5 @@ export const rows = [
         direction: STUDY_HARD,
     },
 ];
+
+export {STUDIES, TYPES};
