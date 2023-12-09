@@ -1,0 +1,19 @@
+.toolbarWrapper {
+	display: flex;
+	justify-content: space-between;
+	.label {
+		margin: 0;
+		padding: 0;
+		font-family: Helvetica, sans-serif;
+		font-weight: 400;
+		font-size: 40px;
+	}
+	.button {
+		padding: 0;
+		margin: 0;
+		border: none;
+		&:first-child {
+			margin-right: 16px;
+		}
+	}
+}
