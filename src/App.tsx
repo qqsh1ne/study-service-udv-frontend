@@ -5,6 +5,8 @@ import Header from './components/Header/ui/Header.tsx';
 import Calendar from './components/Calendar/ui/Calendar.tsx';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Login from './components/Login/ui/Login.tsx';
+import './App.css';
+import Table from './components/DataGridTable/ui/Table.tsx';
 
 function App() {
 	return (
