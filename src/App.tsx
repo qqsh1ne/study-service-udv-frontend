@@ -10,7 +10,7 @@ function App() {
 	return (
 		<BrowserRouter>
 			<div className='app-wrapper'>
-				{/*<Header />*/}
+				<Header />
 				<div className='app-wrapper-content'>
 					<Routes>
 						<Route path='/login' element={<Login />} />
