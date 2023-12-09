@@ -1,14 +1,39 @@
 .container {
-  height: 100px;
-  background: #d9d9d9;
+  height: 104px;
+  background: #2b2a29;
 }
-
-.nav {
+.container .nav {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 500;
+  font-family: "Montserrat", sans-serif;
+  color: #ffffff;
   display: flex;
-  width: 1280px;
+  height: 52px;
+  width: 1180px;
   margin-left: 320px;
   justify-content: space-between;
-  padding-top: 27px;
+}
+.container .nav .logo {
+  padding-top: 37px;
+}
+.container .nav .menu {
+  display: flex;
+  gap: 80px;
+  padding-top: 42px;
+}
+.container .nav .applicationContainer {
+  padding-top: 26px;
+}
+.container .nav .applicationContainer .application {
+  color: #f59d0e;
+  border: #f59d0e 1px solid;
+  padding: 16px 24px;
+}
+.container .nav .secondMenu {
+  padding-top: 40px;
+  display: flex;
+  gap: 36px;
 }
 
 /*# sourceMappingURL=Header.module.css.map */

@@ -1,19 +1,37 @@
 .wrapper {
+  margin-top: 200px;
+  margin-right: 200px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
   display: flex;
   justify-content: flex-end;
 }
-
-.container {
-  width: 340px;
+.wrapper .header {
+  padding: 0;
+  font-size: 36px;
+  margin-bottom: 30px;
 }
-
-.pass {
+.wrapper .container {
+  width: 320px;
+}
+.wrapper .container .pass {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 28px;
 }
-
-.inputs {
+.wrapper .container .pass .checkbox {
+  display: flex;
+  gap: 9px;
+}
+.wrapper .container .inputs {
+  font-size: 14px;
   text-align: start;
+}
+.wrapper .container .inputs .input {
+  margin-bottom: 32px;
+}
+.wrapper .container .inputs .input div {
+  margin-bottom: 12px;
 }
 
 /*# sourceMappingURL=Login.module.css.map */

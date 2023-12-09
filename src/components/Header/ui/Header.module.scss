@@ -1,11 +1,38 @@
 .container {
-	height: 100px;
-	background: #d9d9d9;
-}
-.nav {
-	display: flex;
-	width: 1280px;
-	margin-left: 320px;
-	justify-content: space-between;
-	padding-top: 27px;
+	height: 104px;
+	background: #2b2a29;
+	.nav {
+		font-size: 16px;
+		line-height: 20px;
+		font-weight: 500;
+		font-family: 'Montserrat', sans-serif;
+		color: #ffffff;
+		display: flex;
+		height: 52px;
+		width: 1180px;
+		margin-left: 320px;
+		justify-content: space-between;
+		.logo {
+			padding-top: 37px;
+		}
+		.menu {
+			display: flex;
+			gap: 80px;
+			padding-top: 42px;
+		}
+		.applicationContainer {
+			padding-top: 26px;
+			.application {
+				color: #f59d0e;
+				border: #f59d0e 1px solid;
+				padding: 16px 24px;
+			}
+		}
+
+		.secondMenu {
+			padding-top: 40px;
+			display: flex;
+			gap: 36px;
+		}
+	}
 }

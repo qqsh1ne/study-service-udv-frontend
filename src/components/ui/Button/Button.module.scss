@@ -1,0 +1,30 @@
+.myButton {
+	border-radius: 1px;
+	border: none;
+	background: #f59d0e;
+	font-family: 'Montserrat', sans-serif;
+	padding: 18px 27px;
+	color: #ffffff;
+
+	.large {
+		font-size: 18px;
+		height: 60px;
+		line-height: 22.5px;
+	}
+	.medium {
+		font-size: 16px;
+		height: 52px;
+		line-height: 20px;
+	}
+	.small {
+		font-size: 14px;
+		height: 46px;
+		line-height: 17.5px;
+	}
+	&:hover {
+		background: #ffb122;
+	}
+	&:active {
+		background: #e18900;
+	}
+}

@@ -1,0 +1,21 @@
+.toolbarWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.toolbarWrapper .label {
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 40px;
+}
+.toolbarWrapper .button {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+.toolbarWrapper .button:first-child {
+  margin-right: 16px;
+}
+
+/*# sourceMappingURL=Toolbar.module.css.map */
