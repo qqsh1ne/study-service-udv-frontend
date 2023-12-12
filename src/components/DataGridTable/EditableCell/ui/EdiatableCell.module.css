@@ -1,0 +1,11 @@
+.cell {
+  display: block;
+  max-width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border: 0;
+  text-overflow: clip;
+  white-space: normal;
+}
+
+/*# sourceMappingURL=EdiatableCell.module.css.map */
