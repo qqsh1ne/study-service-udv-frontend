@@ -1,96 +1,154 @@
 import {Box} from "@mui/material";
-import {flexRender, getCoreRowModel, useReactTable} from "@tanstack/react-table";
+import {
+    flexRender,
+    getCoreRowModel,
+    getFilteredRowModel,
+    getPaginationRowModel,
+    getSortedRowModel,
+    useReactTable
+} from "@tanstack/react-table";
 import {rows} from "../TableMock.ts";
-import {useState} from "react";
+import React, {useState} from "react";
 import styles from './Table.module.scss'
 import TableHeader from "../TableHeader/ui/TableHeader.tsx";
 import TablePagination from "../TablePagination/ui/TablePagination.tsx";
+import IDataValues from "../interfaces/IDataValues.ts";
 import EditableCell from "../EditableCell/ui/EditableCell.tsx";
 import SelectCell from "../SelectCell/ui/SelectCell.tsx";
+import DateCell from "../DateCell/ui/DateCell.tsx";
+import DeleteCell from "../DeleteCell/ui/DeleteCell.tsx";
 
 const columns = [
     {
         accessorKey: 'checkbox',
-        cell: (props) => <input type="checkbox"/>
+        cell: (props) => <input type="checkbox"/>,
+        enableSorting: false,
     },
     {
         accessorKey: 'id',
         header: '№ заявки',
-        cell: EditableCell
+        cell: EditableCell,
     },
     {
         accessorKey: 'studyCentre',
         header: 'Учебный центр',
-        cell: EditableCell
+        cell: EditableCell,
+        enableColumnFilter: true,
+        filterFn: "equalsString",
     },
     {
         accessorKey: 'course',
         header: 'Курс',
-        cell: EditableCell
+        cell: EditableCell,
+        enableColumnFilter: true,
+        filterFn: "equalsString",
     },
     {
         accessorKey: 'type',
         header: 'Тип',
         cell: SelectCell,
+        enableColumnFilter: true,
+        filterFn: "equalsString",
+        enableSorting: false,
     },
     {
         accessorKey: 'member',
         header: 'Участники',
-        cell: EditableCell
+        cell: EditableCell,
+        enableColumnFilter: true,
+        filterFn: "equalsString",
     },
     {
         accessorKey: 'department',
         header: 'Департамент',
-        cell: EditableCell
+        cell: EditableCell,
+        enableColumnFilter: true,
+        filterFn: "equalsString",
     },
     {
         accessorKey: 'team',
         header: 'Отдел/команда',
-        cell: EditableCell
+        cell: EditableCell,
+        enableColumnFilter: true,
+        filterFn: "equalsString",
     },
     {
         accessorKey: 'legalPerson',
         header: 'ЮЛ',
-        cell: EditableCell
+        cell: EditableCell,
+        enableColumnFilter: true,
+        filterFn: "equalsString",
     },
     {
         accessorKey: 'startDate',
         header: 'Дата начала',
-        cell: (props) => <p className={styles.cellValue}>{props.getValue()?.toLocaleDateString()}</p>
+        cell: DateCell,
     },
     {
         accessorKey: 'endDate',
         header: 'Дата конца',
-        cell: (props) => <p className={styles.cellValue}>{props.getValue()?.toLocaleDateString()}</p>
+        cell: DateCell,
     },
     {
         accessorKey: 'price',
         header: 'Стоимость на 1 чел.',
-        cell: EditableCell
+        cell: EditableCell,
+        enableColumnFilter: true,
     },
     {
         accessorKey: 'direction',
         header: 'Направление обучения',
         cell: SelectCell,
+        enableSorting: false,
     },
     {
         accessorKey: 'icons',
+        cell: DeleteCell,
+        enableSorting: false,
     }
-]
+];
+
+const getDataValues: (data: any) => IDataValues = (data) => {
+    const values: IDataValues = {
+        'studyCentre': [],
+        'course': [],
+        'type': [],
+        'member': [],
+        'department': [],
+        'team': [],
+        'legalPerson': [],
+        'direction': [],
+    }
+    data.forEach(row => Object.entries(row).forEach(([key, value]) => {
+        if (key !== 'checkbox' && key !== 'id' && key !== 'startDate' && key !== 'endDate' && key !== 'icons' && key !== 'price' && !values[key].includes(value)) {
+            values[key].push(value);
+        }
+    }));
+    return values;
+}
 
 const Table: React.FC = () => {
-    const [data, setData] = useState(rows)
+    const [data, setData] = useState(rows);
+    const [columnFilters, setColumnFilters] = useState([]);
+
+    const dataValues = getDataValues(data)
+
     const table = useReactTable({
         data,
         columns,
-        getCoreRowModel: getCoreRowModel()
+        state: {
+            columnFilters,
+        },
+        getCoreRowModel: getCoreRowModel(),
+        getFilteredRowModel: getFilteredRowModel(),
+        getSortedRowModel: getSortedRowModel(),
+        getPaginationRowModel: getPaginationRowModel(),
     });
 
     const getCheckBox = () =>(<input type="checkbox"/>)
-    console.log(table.getHeaderGroups())
     return (
         <div className={styles.wrapper}>
-            <TableHeader rowsCount={data.length}/>
+            <TableHeader rowsCount={data.length} dataValues={dataValues} columnFilters={columnFilters} setColumnFilters={setColumnFilters}/>
             <Box className={styles.table}>
                 <fieldset>
                     {table.getHeaderGroups().map(headerGroup =>
@@ -99,6 +157,24 @@ const Table: React.FC = () => {
                                 header =>
                                     <Box className={styles.th} key={header.id}>
                                         {header.column.columnDef.accessorKey === 'checkbox' ? getCheckBox() : header.column.columnDef.header}
+                                        {header.column.getCanSort() && !header.column.getIsSorted() && (
+                                            <span
+                                                className={styles.sortIcon}
+                                                onClick={header.column.getToggleSortingHandler()}
+                                            />
+                                        )}
+                                        {header.column.getIsSorted() === 'desc' && (
+                                            <span
+                                                className={`${styles.sortIcon} ${styles.desc}`}
+                                                onClick={header.column.getToggleSortingHandler()}
+                                            />
+                                        )}
+                                        {header.column.getIsSorted() === 'asc' && (
+                                            <span
+                                                className={`${styles.sortIcon} ${styles.asc}`}
+                                                onClick={header.column.getToggleSortingHandler()}
+                                            />
+                                        )}
                                     </Box>
                             )}
                         </Box>
@@ -110,7 +186,7 @@ const Table: React.FC = () => {
                     </Box>)}
                 </fieldset>
             </Box>
-            <TablePagination rowsCount={data.length}/>
+            <TablePagination table={table}/>
         </div>
     )
 }

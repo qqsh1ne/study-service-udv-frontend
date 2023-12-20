@@ -13,11 +13,10 @@
 }
 
 .screens {
-
-}
-
-.screensItem {
-
+  display: flex;
+  align-items: center;
+  margin-left: 28px;
+  margin-right: 27px;
 }
 
 .navBtn {
@@ -36,6 +35,7 @@
   font-size: 14px;
   line-height: 18px;
   font-weight: 500;
+  cursor: pointer;
   &:hover {
     border-color: $button-hover;
     color: $button-hover;
@@ -47,6 +47,7 @@
   &:disabled {
     border-color: $disabled;
     color: $disabled;
+    cursor: default;
   }
   &:hover span {
     background-image: url("../../../../assets/arrows/arrow-left-hover.svg");
@@ -68,5 +69,4 @@
   &:nth-child(2) span {
     transform: rotate(180deg);
   }
-
 }
