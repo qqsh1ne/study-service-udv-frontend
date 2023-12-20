@@ -1,5 +1,5 @@
 import { Checkbox, Form } from 'antd';
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import cls from './Login.module.scss';
 import CustomButton from '../../../components/ui/CustomButton/CustomButton.tsx';
 import CustomInput from '../../../components/ui/CustomInput/CustomInput.tsx';
@@ -7,6 +7,7 @@ import { User } from '../model/types/authSchema.ts';
 import { useLoginMutation } from '../../../services/authApi.ts';
 import { NavigateFunction, useNavigate } from 'react-router-dom';
 import { ErrorMessage } from '../../../components/ErrorMessage/ErrorMessage.tsx';
+import { useDebounce } from '../../../hooks/useDebounce.ts';
 
 // testuser@test.com
 // qwerty123
@@ -22,18 +23,23 @@ const Login: FC = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [error, setError] = useState('');
+	const token = localStorage.getItem('access_token');
 	const login = async () => {
 		const data: User = { email: email, password: password };
 		try {
 			await loginUser(data).unwrap();
-			navigate('/');
 		} catch (e) {
-			console.log(e);
 			setError('Неизвестная ошибка');
 		}
 	};
+
+	useEffect(() => {
+		token && navigate('/');
+	}, [login]);
+
+	const debouncedLogin = useDebounce(login, 1000);
 	return (
-		<Form onFinish={login} className={cls.wrapper}>
+		<Form onFinish={debouncedLogin} className={cls.wrapper}>
 			<div className={cls.container}>
 				<div className={cls.header}>Авторизация</div>
 				<Form.Item<FieldType> className={cls.input}>

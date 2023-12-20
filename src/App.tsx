@@ -10,28 +10,6 @@ import Home from './screens/Home/ui/Home.tsx';
 import { ProtectedRouter } from './features/Auth/ProtectedRouter.tsx';
 import Header from './components/Header/ui/Header.tsx';
 
-// const router = createBrowserRouter([
-// 	{
-// 		path: Path.login,
-// 		element: <Login />
-// 	},
-// 	{
-// 		path: Path.calendar,
-// 		element: <Calendar />
-// 	},
-// 	{
-// 		path: Path.table,
-// 		element: <Table />
-// 	},
-// 	{
-// 		path: Path.application,
-// 		element: <CreateApplication />
-// 	},
-// 	{
-// 		path: Path.home,
-// 		element: <Home />
-// 	}
-// ]);
 function App() {
 	return (
 		<Router>

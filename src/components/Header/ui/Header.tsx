@@ -2,19 +2,20 @@ import cls from './Header.module.scss';
 import logo from '../../../assets/logo.svg';
 import notification from '../../../assets/notification.svg';
 import people from '../../../assets/people.svg';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { Path } from '../../../const/path.ts';
 import Layout from '../../Layout/ui/Layout.tsx';
 import { useAppDispatch } from '../../../hooks/hooks.ts';
 import { authActions } from '../../../screens/Login/model/slices/authSlice.ts';
 const Header = () => {
 	const dispatch = useAppDispatch();
+	const location = useLocation();
 	const logout = () => {
 		dispatch(authActions.logout());
 		localStorage.removeItem('access_token');
 	};
 
-	return (
+	return !location.pathname.includes('login') ? (
 		<div className={cls.container}>
 			<Layout>
 				<nav className={cls.nav}>
@@ -42,6 +43,8 @@ const Header = () => {
 				</nav>
 			</Layout>
 		</div>
+	) : (
+		<></>
 	);
 };
 
