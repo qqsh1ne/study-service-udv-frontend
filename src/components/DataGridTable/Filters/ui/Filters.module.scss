@@ -1,0 +1,61 @@
+@import "../../../../consts";
+
+.window {
+  width: 514px;
+  height: 601px;
+  padding: 20px 40px 28px 40px;
+  position: absolute;
+  top: 100%;
+  background-color: $table-background;
+  z-index: 1000;
+  border: 1px solid $table-borders;
+  border-radius: 4px;
+
+  button {
+    margin: 28px 0 0;
+    width: 100%;
+    height: 46px;
+    border: 0;
+    border-radius: 4px;
+    background-color: $button-default;
+    color: #fff;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $button-hover;
+    }
+    &:active {
+      background-color: $button-active;
+    }
+  }
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 16px;
+  column-gap: 16px;
+}
+
+.filter {
+  max-width: 100%;
+  height: 65px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.filterItem {
+  width: 208px;
+  height: 38px;
+}
+
+.long {
+  width: 432px;
+}
+
+.inputGroup {
+  display: flex;
+  gap: 16px;
+}

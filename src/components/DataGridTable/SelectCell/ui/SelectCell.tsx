@@ -1,33 +1,24 @@
 import {Select} from "antd";
 import {Column} from "@tanstack/react-table";
 import {STUDIES, TYPES} from "../../TableMock.ts";
+import React from "react";
 
 const SelectCell: React.FC<{ column: Column<any, any>, getValue: () => any }> = ({column, getValue}) => {
     const initialValue = getValue();
-    const accessorKey = column.columnDef.accessorKey;
-    // const getOptions = () => {
-    //     switch (accessorKey) {
-    //         case 'type':
-    //             TYPES.map(type => {
-    //                     {
-    //                         value: type.name, label
-    //                     :
-    //                         type.name
-    //                     }
-    //                 }
-    //             )
-    //     }
-    //
-    // }
+    const accessorKey = column.columnDef?.accessorKey;
+    const getOptions = () => {
+        switch (accessorKey) {
+            case 'type':
+                return TYPES.map(type => ({value: type.name, label: type.name}));
+            case 'direction':
+                return STUDIES.map(direction => ({value: direction.name, label: direction.name}));
+        }
+    }
 
     return (
         <Select
-            defaultValue={initialValue.name}
-            options={[
-                {value: 'Конференция', label: 'Конференция'},
-                {value: 'Обучение', label: 'Обучение'},
-                {value: 'Экзамен', label: 'Экзамен'},
-            ]}
+            defaultValue={initialValue}
+            options={getOptions()}
         />
     )
 }
