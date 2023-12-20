@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import styles from './EdiatableCell.module.scss'
 import {Input} from "antd";
 
