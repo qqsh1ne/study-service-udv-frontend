@@ -1,0 +1,9 @@
+.customInput {
+	border-radius: 4px;
+	&:hover {
+		border: 1px solid #f59d0e;
+	}
+	&:focus {
+		border: 1px solid #f59d0e;
+	}
+}

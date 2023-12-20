@@ -1,0 +1,23 @@
+.wrapper {
+  display: flex;
+  gap: 40px;
+  margin-top: 60px;
+}
+.wrapper .button {
+  border-radius: 8px;
+  border: none;
+  background: #d9d9d9;
+  font-family: "Helvetica", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #000000;
+  height: 54px;
+  width: 204px;
+}
+.wrapper .calendar {
+  height: 750px;
+  width: 100%;
+  border: 1px solid #ffffff;
+}
+
+/*# sourceMappingURL=Calendar.module.css.map */

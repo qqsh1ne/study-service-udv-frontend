@@ -1,12 +1,23 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { authReducer } from '../screens/Login/model/slices/authSlice.ts';
+import { api } from '../services/api.ts';
+import { listenerMiddleware } from '../screens/Login/model/middleware/auth.ts';
 
-const rootReducer = combineReducers({});
+const rootReducer = combineReducers({
+	[api.reducerPath]: api.reducer,
+	auth: authReducer
+});
 
 export const setupStore = () => {
 	return configureStore({
-		reducer: rootReducer
+		reducer: rootReducer,
+		middleware: (getDefaultMiddleware) =>
+			getDefaultMiddleware()
+				.concat(api.middleware)
+				.prepend(listenerMiddleware.middleware)
 	});
 };
 
 export type RootState = ReturnType<typeof rootReducer>;
+export type AppDispatch = AppStore['dispatch'];
 export type AppStore = ReturnType<typeof setupStore>;
