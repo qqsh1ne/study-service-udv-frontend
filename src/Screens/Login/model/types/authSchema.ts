@@ -1,4 +1,4 @@
-export interface User {
+export interface UserSchema {
 	first_name?: string;
 	second_name?: string;
 	middle_name?: string;
@@ -8,6 +8,6 @@ export interface User {
 }
 
 export interface AuthSchema {
-	authData?: User;
+	authData?: UserSchema;
 	isAuth?: boolean;
 }

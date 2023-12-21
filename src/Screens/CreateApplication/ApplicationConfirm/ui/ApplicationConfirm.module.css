@@ -1,0 +1,63 @@
+.confirmation {
+  font-family: "Montserrat", sans-serif;
+  color: #000;
+  font-weight: 400;
+  margin-top: 46px;
+}
+.confirmation h1 {
+  font-size: 40px;
+  line-height: 55px;
+}
+
+.wrapper {
+  margin-top: 40px;
+  display: flex;
+  align-items: end;
+}
+
+.btnsWrapper {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.statusDesc {
+  font-size: 24px;
+  line-height: 33px;
+  margin-right: 36px;
+}
+
+.toHome {
+  width: 152px;
+  height: 54px;
+  background-color: #D9D9D9;
+  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #000;
+  font-size: 16px;
+  line-height: 22px;
+  border-radius: 8px;
+  margin-right: 60px;
+}
+
+.toApplication {
+  font-size: 16px;
+  line-height: 22px;
+  color: #000;
+  display: block;
+  position: relative;
+}
+.toApplication:after {
+  top: 6px;
+  left: 80px;
+  position: absolute;
+  display: block;
+  content: "";
+  width: 22px;
+  height: 11px;
+  background-image: url("/src/assets/application-arrow.svg");
+}
+
+/*# sourceMappingURL=ApplicationConfirm.module.css.map */

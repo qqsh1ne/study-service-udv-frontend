@@ -26,7 +26,7 @@ export const CustomInput = ({
 			<Input
 				placeholder={placeholder}
 				type={type}
-				size='large'
+				size='middle'
 				className={cls.customInput}
 				onChange={onChange}
 			/>

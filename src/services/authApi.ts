@@ -1,38 +1,27 @@
 import { api } from './api.ts';
-import { User } from '../screens/Login/model/types/authSchema.ts';
+import { UserSchema } from '../screens/Login/model/types/authSchema.ts';
 
-interface AuthResult {
-	response: {
-		email: string;
-		access_token: string;
-	};
+interface ResponseSchema {
+	response: UserSchema;
 }
-interface UserSchema {
-	response: {
-		first_name?: string;
-		second_name?: string;
-		middle_name?: string;
-		email?: string;
-		access_token?: string;
-	};
-}
+
 export const authApi = api.injectEndpoints({
 	endpoints: (builder) => ({
-		login: builder.mutation<AuthResult, User>({
+		login: builder.mutation<ResponseSchema, UserSchema>({
 			query: (userData) => ({
 				url: '/api/login',
 				method: 'POST',
 				body: userData
 			})
 		}),
-		register: builder.mutation<AuthResult, UserSchema>({
+		register: builder.mutation<ResponseSchema, UserSchema>({
 			query: (userData) => ({
 				url: '/api/register',
 				method: 'POST',
 				body: userData
 			})
 		}),
-		current: builder.mutation<UserSchema, { access_token: string }>({
+		current: builder.mutation<ResponseSchema, { access_token: string }>({
 			query: (token) => ({
 				url: '/api/profile',
 				method: 'POST',

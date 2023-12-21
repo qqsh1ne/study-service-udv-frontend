@@ -10,6 +10,13 @@
   align-items: center;
 }
 
+.screens {
+  display: flex;
+  align-items: center;
+  margin-left: 28px;
+  margin-right: 27px;
+}
+
 .navBtn {
   position: relative;
   display: flex;
@@ -26,6 +33,7 @@
   font-size: 14px;
   line-height: 18px;
   font-weight: 500;
+  cursor: pointer;
 }
 .navBtn:hover {
   border-color: #FFB122;
@@ -38,6 +46,7 @@
 .navBtn:disabled {
   border-color: #AFB0B0;
   color: #AFB0B0;
+  cursor: default;
 }
 .navBtn:hover span {
   background-image: url("../../../../assets/arrows/arrow-left-hover.svg");
