@@ -1,0 +1,90 @@
+@import "src/consts";
+
+.header, .table {
+  font-family: 'Montserrat', sans-serif;
+  color: $text-primary;
+}
+
+.header {
+  margin-top: 60px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+
+  h1 {
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 31px;
+  }
+}
+
+.toApp {
+  width: 176px;
+  height: 52px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $button-default;
+  color: #fff;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 500;
+
+  &:hover {
+    color: #fff;
+    background-color: $button-hover;
+    text-decoration: none;
+  }
+
+  &:active {
+    background-color: $button-active;
+  }
+
+  &:disabled {
+    background-color: $disabled;
+  }
+}
+
+.table {
+  width: 1158px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17.5px;
+  border: 1px solid $disabled;
+  border-bottom: none;
+}
+
+.th {
+  background-color: #EBEBEA;
+}
+
+.tr {
+  height: 72px;
+  display: grid;
+  grid-template-columns: 140px 176px 349px 203px 290px;
+  border-bottom: 1px solid $disabled;
+
+  &:first-child {
+    height: 52px;
+    font-weight: 500;
+  }
+}
+
+.th, .td {
+  padding-left: 24px;
+  display: flex;
+  align-items: center;
+  &:first-child {
+    padding-left: 28px;
+  }
+}
+
+.td {
+
+}
+
+.sortIcon {
+
+}
