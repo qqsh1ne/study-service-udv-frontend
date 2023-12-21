@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { DatePicker, Input } from 'antd';
+import {DatePicker, Input} from 'antd';
 import cls from './CreateApplication.module.scss';
 import Layout from '../../../components/Layout/ui/Layout.tsx';
 import CustomButton from '../../../components/ui/CustomButton/CustomButton.tsx';
@@ -9,7 +9,7 @@ const CreateApplication: FC = () => {
 	return (
 		<Layout>
 			<div className={cls.container}>
-				<div className={cls.header}>Заявка # 2281337</div>
+				<div className={cls.header}>Создание заявки</div>
 				<div className={cls.section}>
 					<div className={cls.fieldName}>О сотруднике</div>
 					<div className={cls.inputSection}>
