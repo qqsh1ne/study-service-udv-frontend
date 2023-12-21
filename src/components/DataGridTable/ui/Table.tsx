@@ -13,15 +13,15 @@ import styles from './Table.module.scss'
 import TableHeader from "../TableHeader/ui/TableHeader.tsx";
 import TablePagination from "../TablePagination/ui/TablePagination.tsx";
 import IDataValues from "../interfaces/IDataValues.ts";
-import EditableCell from "../EditableCell/ui/EditableCell.tsx";
-import SelectCell from "../SelectCell/ui/SelectCell.tsx";
-import DateCell from "../DateCell/ui/DateCell.tsx";
-import DeleteCell from "../DeleteCell/ui/DeleteCell.tsx";
+import EditableCell from '../../TableCells/EditableCell/ui/EditableCell.tsx'
+import SelectCell from "../../TableCells/SelectCell/ui/SelectCell.tsx";
+import DateCell from "../../TableCells/DateCell/ui/DateCell.tsx";
+import DeleteCell from "../../TableCells/DeleteCell/ui/DeleteCell.tsx";
 
 const columns = [
     {
         accessorKey: 'checkbox',
-        cell: (props) => <input type="checkbox"/>,
+        cell: () => <input type="checkbox"/>,
         enableSorting: false,
     },
     {
