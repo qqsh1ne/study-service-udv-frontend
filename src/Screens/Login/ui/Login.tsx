@@ -3,7 +3,7 @@ import { FC, useEffect, useState } from 'react';
 import cls from './Login.module.scss';
 import CustomButton from '../../../components/ui/CustomButton/CustomButton.tsx';
 import CustomInput from '../../../components/ui/CustomInput/CustomInput.tsx';
-import { User } from '../model/types/authSchema.ts';
+import { UserSchema } from '../model/types/authSchema.ts';
 import { useLoginMutation } from '../../../services/authApi.ts';
 import { NavigateFunction, useNavigate } from 'react-router-dom';
 import { ErrorMessage } from '../../../components/ErrorMessage/ErrorMessage.tsx';
@@ -25,7 +25,7 @@ const Login: FC = () => {
 	const [error, setError] = useState('');
 	const token = localStorage.getItem('access_token');
 	const login = async () => {
-		const data: User = { email: email, password: password };
+		const data: UserSchema = { email: email, password: password };
 		try {
 			await loginUser(data).unwrap();
 		} catch (e) {

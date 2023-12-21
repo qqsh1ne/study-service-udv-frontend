@@ -2,10 +2,12 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { authReducer } from '../screens/Login/model/slices/authSlice.ts';
 import { api } from '../services/api.ts';
 import { listenerMiddleware } from '../screens/Login/model/middleware/auth.ts';
+import { applicationReducer } from '../screens/CreateApplication/model/slices/applicationSlice.ts';
 
 const rootReducer = combineReducers({
 	[api.reducerPath]: api.reducer,
-	auth: authReducer
+	auth: authReducer,
+	application: applicationReducer
 });
 
 export const setupStore = () => {
