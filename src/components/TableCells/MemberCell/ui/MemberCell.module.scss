@@ -1,0 +1,27 @@
+@import "src/consts";
+
+.cell {
+  display: flex;
+  img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: $disabled;
+    margin-right: 12px;
+  }
+}
+
+.name, .email {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17.5px;
+}
+
+.name {
+  color: $text-primary;
+}
+
+.email {
+  color: $subtext;
+}

@@ -1,0 +1,54 @@
+.status {
+  height: 35px;
+  padding: 8px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  border-radius: 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  line-height: 19px;
+  font-weight: 400;
+}
+
+.approval {
+  background-color: #E1F0F4;
+  color: #317487;
+}
+
+.rejected {
+  background-color: #F9C8C8;
+  color: #BA1512;
+}
+
+.new {
+  background-color: #FCDFB1;
+  color: #B07007;
+}
+
+.inProcess {
+  background-color: #FDF8D8;
+  color: #746606;
+}
+
+.docsApproval {
+  background-color: #E8E4F1;
+  color: #644C94;
+}
+
+.payment {
+  background-color: #FCE2D9;
+  color: #895706;
+}
+
+.waiting {
+  background-color: #F3E2ED;
+  color: #8D3B72;
+}
+
+.completed {
+  background-color: #DBE6DE;
+  color: #4B6C56;
+}
