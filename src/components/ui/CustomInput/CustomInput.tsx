@@ -1,5 +1,4 @@
 import { Form, Input } from 'antd';
-import cls from './CustomInput.module.scss';
 
 type CustomInputProps = {
 	name?: string;
@@ -17,7 +16,6 @@ export const CustomInput = ({
 		<Form.Item
 			name={name}
 			rules={[{ required: true, message: 'Обязательное поле' }]}
-			shouldUpdate={true}
 			style={{
 				margin: 0,
 				padding: 0
@@ -27,7 +25,6 @@ export const CustomInput = ({
 				placeholder={placeholder}
 				type={type}
 				size='middle'
-				className={cls.customInput}
 				onChange={onChange}
 			/>
 		</Form.Item>

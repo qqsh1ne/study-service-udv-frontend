@@ -1,4 +1,4 @@
-import { Checkbox, Form } from 'antd';
+import { Checkbox, Form, Input } from 'antd';
 import { FC, useEffect, useState } from 'react';
 import cls from './Login.module.scss';
 import CustomButton from '../../../components/ui/CustomButton/CustomButton.tsx';
@@ -12,11 +12,6 @@ import { useDebounce } from '../../../hooks/useDebounce.ts';
 // testuser@test.com
 // qwerty123
 
-type FieldType = {
-	email: string;
-	password: string;
-};
-
 const Login: FC = () => {
 	const navigate: NavigateFunction = useNavigate();
 	const [loginUser] = useLoginMutation();
@@ -26,8 +21,12 @@ const Login: FC = () => {
 	const token = localStorage.getItem('access_token');
 	const login = async () => {
 		const data: UserSchema = { email: email, password: password };
+
 		try {
-			await loginUser(data).unwrap();
+			await loginUser(data).then((response) => {
+				// @ts-ignore
+				setError(response.data.error);
+			});
 		} catch (e) {
 			setError('Неизвестная ошибка');
 		}
@@ -42,20 +41,26 @@ const Login: FC = () => {
 		<Form onFinish={debouncedLogin} className={cls.wrapper}>
 			<div className={cls.container}>
 				<div className={cls.header}>Авторизация</div>
-				<Form.Item<FieldType> className={cls.input}>
+				<Form.Item className={cls.input}>
 					<div className={cls.inputType}>Email</div>
 					<CustomInput
+						name='Email'
 						type='email'
 						onChange={(e) => setEmail(e.target.value)}
 					/>
 				</Form.Item>
-				<Form.Item<FieldType> className={cls.input}>
+				<div className={cls.input}>
 					<div className={cls.inputType}>Пароль</div>
-					<CustomInput
-						type='password'
-						onChange={(e) => setPassword(e.target.value)}
-					/>
-				</Form.Item>
+					<Form.Item
+						name='password'
+						rules={[{ required: true, message: 'Обязательное поле' }]}
+					>
+						<Input.Password
+							type='password'
+							onChange={(e) => setPassword(e.target.value)}
+						/>
+					</Form.Item>
+				</div>
 				<div className={cls.pass}>
 					<div className={cls.checkbox}>
 						<Checkbox />
@@ -63,7 +68,7 @@ const Login: FC = () => {
 					</div>
 					<div>Забыли пароль?</div>
 				</div>
-				<Form.Item<FieldType>>
+				<Form.Item>
 					<CustomButton className='medium' width='100%'>
 						Войти
 					</CustomButton>
