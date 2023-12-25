@@ -3,43 +3,35 @@ import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import Toolbar from './Toolbar/Toolbar.tsx';
-import i18next from 'i18next';
-import languageDetector from 'i18next-browser-languagedetector';
 import cls from './Calendar.module.scss';
 import Layout from '../../../components/Layout/ui/Layout.tsx';
+import NewEventForm from '../NewEventForm/NewEventForm.tsx';
 
 interface Event {
-	start: Date;
-	end: Date;
+	start: Date | undefined;
+	end: Date | undefined;
 	title: string;
 }
-
-i18next.use(languageDetector).init({
-	debug: true,
-	fallbackLng: 'en',
-	resources: {
-		en: {},
-		ru: {
-			today: 'Сегодня',
-			month: 'Месяц',
-			week: 'Неделя',
-			day: 'День',
-			agenda: 'Повестка дня'
-		}
-	}
-});
 
 const localizer = momentLocalizer(moment);
 
 const CalendarPage = () => {
 	const [events, setEvents] = useState<Event[]>([]);
-
-	const handleSelect = ({ start, end }: { start: Date; end: Date }) => {
-		const title = prompt('Введите название события:');
-		if (title) {
-			const newEvent = { start, end, title };
-			setEvents([...events, newEvent]);
-		}
+	const [title, setTitle] = useState('');
+	const [start, setStart] = useState<Date>();
+	const [end, setEnd] = useState<Date>();
+	console.log(start, end);
+	console.log(events);
+	const onDate = (startDate: Date, endDate: Date) => {
+		setStart(startDate);
+		setEnd(endDate);
+	};
+	const onName = (e: any) => {
+		setTitle(e.target.value);
+	};
+	const handleSelect = () => {
+		const newEvent = { start, end, title };
+		setEvents([...events, newEvent]);
 	};
 
 	return (
@@ -58,10 +50,9 @@ const CalendarPage = () => {
 					startAccessor='start'
 					endAccessor='end'
 					selectable
-					onSelectSlot={handleSelect}
 					className={cls.calendar}
 				/>
-				<button className={cls.button}>Добавить событие</button>
+				<NewEventForm onDate={onDate} onName={onName} onFinish={handleSelect} />
 			</div>
 		</Layout>
 	);

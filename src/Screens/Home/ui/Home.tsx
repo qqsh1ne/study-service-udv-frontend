@@ -1,39 +1,44 @@
 import Layout from '../../../components/Layout/ui/Layout.tsx';
 import cls from './Home.module.scss';
-import {useReactTable, getSortedRowModel, getCoreRowModel, flexRender} from "@tanstack/react-table";
-import {FC, useState} from "react";
-import {NavLink} from "react-router-dom";
-import {Path} from "../../../const/path.ts";
-import ReadonlyCell from "../../../components/TableCells/ReadonlyCell/ui/ReadonlyCell.tsx";
-import StatusCell from "../../../components/TableCells/StatusCell/ui/StatusCell.tsx";
-import MemberCell from "../../../components/TableCells/MemberCell/ui/MemberCell.tsx";
+import {
+	useReactTable,
+	getSortedRowModel,
+	getCoreRowModel,
+	flexRender
+} from '@tanstack/react-table';
+import { FC, useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import { Path } from '../../../const/path.ts';
+import ReadonlyCell from '../../../components/TableCells/ReadonlyCell/ui/ReadonlyCell.tsx';
+import StatusCell from '../../../components/TableCells/StatusCell/ui/StatusCell.tsx';
+import MemberCell from '../../../components/TableCells/MemberCell/ui/MemberCell.tsx';
 
 const columns = [
 	{
 		accessorKey: 'id',
 		header: '№ заявки',
-		cell: ReadonlyCell,
+		cell: ReadonlyCell
 	},
 	{
 		accessorKey: 'courseName',
 		header: 'Курс',
-		cell: ReadonlyCell,
+		cell: ReadonlyCell
 	},
 	{
 		accessorKey: 'student',
 		header: 'Участники',
-		cell: MemberCell,
+		cell: MemberCell
 	},
 	{
 		accessorKey: 'changer',
 		header: 'Автор',
-		cell: ReadonlyCell,
+		cell: ReadonlyCell
 	},
 	{
 		accessorKey: 'status',
 		header: 'Статус',
-		cell: StatusCell,
-	},
+		cell: StatusCell
+	}
 ];
 
 const mock = [
@@ -42,30 +47,32 @@ const mock = [
 		courseName: 'Аналитик данных',
 		student: 'krutoymuzhik@trap.com',
 		changer: 'Игнатьев Михаил Николаевич',
-		status: 'new',
+		status: 'new'
 	}
-]
+];
 
 const Home: FC = () => {
-	const [data,] = useState(mock);
+	const [data] = useState(mock);
 
 	const table = useReactTable({
 		data,
 		columns,
 		getCoreRowModel: getCoreRowModel(),
-		getSortedRowModel: getSortedRowModel(),
+		getSortedRowModel: getSortedRowModel()
 	});
 
 	return (
 		<Layout>
 			<div className={cls.header}>
 				<h1>Заявки в компании</h1>
-				<NavLink to={Path.application} className={cls.toApp}>Создать заявку</NavLink>
+				<NavLink to={Path.application} className={cls.toApp}>
+					Создать заявку
+				</NavLink>
 			</div>
 			<div className={cls.table}>
-				{table.getHeaderGroups().map(headerGroup =>
+				{table.getHeaderGroups().map((headerGroup) => (
 					<div className={cls.tr} key={headerGroup.id}>
-						{headerGroup.headers.map(header =>
+						{headerGroup.headers.map((header) => (
 							<div className={cls.th} key={header.id}>
 								{header.column.columnDef.header}
 								{header.column.getCanSort() && !header.column.getIsSorted() && (
@@ -87,15 +94,18 @@ const Home: FC = () => {
 									/>
 								)}
 							</div>
-						)}
+						))}
 					</div>
-				)}
-				{table.getRowModel().rows.map(row => <div className={cls.tr} key={row.id}>
-						{row.getVisibleCells().map(cell => <div className={cls.td} key={cell.id}>
-							{flexRender(cell.column.columnDef.cell, cell.getContext())}
-						</div>)}
+				))}
+				{table.getRowModel().rows.map((row) => (
+					<div className={cls.tr} key={row.id}>
+						{row.getVisibleCells().map((cell) => (
+							<div className={cls.td} key={cell.id}>
+								{flexRender(cell.column.columnDef.cell, cell.getContext())}
+							</div>
+						))}
 					</div>
-				)}
+				))}
 			</div>
 		</Layout>
 	);

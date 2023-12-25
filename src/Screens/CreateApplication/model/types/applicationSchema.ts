@@ -14,5 +14,5 @@ export interface IApplication extends InterfaceData {
 }
 
 export interface ApplicationSchema {
-	application: IApplication;
+	applicationData: IApplication;
 }

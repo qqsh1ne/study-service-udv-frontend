@@ -1,7 +1,6 @@
 import { createApi, fetchBaseQuery, retry } from '@reduxjs/toolkit/query/react';
 import { RootState } from '../store/store.ts';
-
-const SERVER_URL = 'http://51.250.93.76:3000/';
+import { SERVER_URL } from '../const/env.ts';
 
 const baseQuery = fetchBaseQuery({
 	baseUrl: SERVER_URL,
