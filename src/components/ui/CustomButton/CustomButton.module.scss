@@ -4,12 +4,14 @@
 	background: #f59d0e;
 	font-family: 'Montserrat', sans-serif;
 	color: #ffffff;
-
 	&:hover {
 		background: #ffb122;
 	}
 	&:active {
 		background: #e18900;
+	}
+	span {
+		color: #ffffff;
 	}
 }
 

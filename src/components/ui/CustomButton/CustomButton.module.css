@@ -11,6 +11,9 @@
 .customButton:active {
   background: #e18900;
 }
+.customButton span {
+  color: #ffffff;
+}
 
 .large {
   font-size: 18px;

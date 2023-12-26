@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { applicationApi } from '../../../../services/applicationApi.ts';
 
 const initialState: ApplicationSchema = {
-	application: {}
+	applicationData: {}
 };
 
 export const applicationSlice = createSlice({
@@ -11,14 +11,14 @@ export const applicationSlice = createSlice({
 	initialState,
 	reducers: {
 		createApplication: (state, action) => {
-			state.application = action.payload;
+			state.applicationData = action.payload;
 		}
 	},
 	extraReducers: (builder) => {
 		builder.addMatcher(
 			applicationApi.endpoints.add.matchFulfilled,
 			(state, action) => {
-				state.application.id = action.payload.response.application_id;
+				state.applicationData.id = action.payload.response.application_id;
 			}
 		);
 	}

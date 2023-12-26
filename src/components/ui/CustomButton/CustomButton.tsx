@@ -1,6 +1,6 @@
 import cls from './CustomButton.module.scss';
 import { FC } from 'react';
-import { Form } from 'antd';
+import { Button, Form } from 'antd';
 
 type CustomButtonProps = {
 	children: string;
@@ -17,13 +17,14 @@ const CustomButton: FC<CustomButtonProps> = ({
 }) => {
 	return (
 		<Form.Item>
-			<button
+			<Button
+				htmlType='submit'
 				onClick={onClick}
 				style={{ width: width }}
 				className={`${cls[className]} ${cls.customButton}`}
 			>
 				{children}
-			</button>
+			</Button>
 		</Form.Item>
 	);
 };

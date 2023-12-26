@@ -3,9 +3,9 @@ import cls from './Toolbar.module.scss';
 import { Navigate, ToolbarProps } from 'react-big-calendar';
 import pointerLeft from '../../../../assets/pointer-left.svg';
 import pointerRight from '../../../../assets/pointer-right.svg';
+
 const Toolbar: FC<ToolbarProps> = (props) => {
 	const { label } = props;
-
 	const onNext = () => {
 		props.onNavigate(Navigate.NEXT);
 	};

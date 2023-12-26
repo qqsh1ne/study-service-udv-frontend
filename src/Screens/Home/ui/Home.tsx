@@ -14,28 +14,28 @@ const columns = [
 	{
 		accessorKey: 'id',
 		header: '№ заявки',
-		cell: ReadonlyCell,
+		cell: ReadonlyCell
 	},
 	{
 		accessorKey: 'courseName',
 		header: 'Курс',
-		cell: ReadonlyCell,
+		cell: ReadonlyCell
 	},
 	{
 		accessorKey: 'student',
 		header: 'Участники',
-		cell: MemberCell,
+		cell: MemberCell
 	},
 	{
 		accessorKey: 'changer',
 		header: 'Автор',
-		cell: ReadonlyCell,
+		cell: ReadonlyCell
 	},
 	{
 		accessorKey: 'status',
 		header: 'Статус',
-		cell: StatusCell,
-	},
+		cell: StatusCell
+	}
 ];
 
 const Home: FC = () => {
@@ -55,19 +55,21 @@ const Home: FC = () => {
 		data,
 		columns,
 		getCoreRowModel: getCoreRowModel(),
-		getSortedRowModel: getSortedRowModel(),
+		getSortedRowModel: getSortedRowModel()
 	});
 
 	return (
 		<Layout>
 			<div className={cls.header}>
 				<h1>Заявки в компании</h1>
-				<NavLink to={Path.application} className={cls.toApp}>Создать заявку</NavLink>
+				<NavLink to={Path.application} className={cls.toApp}>
+					Создать заявку
+				</NavLink>
 			</div>
 			<div className={cls.table}>
-				{table.getHeaderGroups().map(headerGroup =>
+				{table.getHeaderGroups().map((headerGroup) => (
 					<div className={cls.tr} key={headerGroup.id}>
-						{headerGroup.headers.map(header =>
+						{headerGroup.headers.map((header) => (
 							<div className={cls.th} key={header.id}>
 								{header.column.columnDef.header}
 								{header.column.getCanSort() && !header.column.getIsSorted() && (
@@ -89,15 +91,18 @@ const Home: FC = () => {
 									/>
 								)}
 							</div>
-						)}
+						))}
 					</div>
-				)}
-				{table.getRowModel().rows.map(row => <div className={cls.tr} key={row.id}>
-						{row.getVisibleCells().map(cell => <div className={cls.td} key={cell.id}>
-							{flexRender(cell.column.columnDef.cell, cell.getContext())}
-						</div>)}
+				))}
+				{table.getRowModel().rows.map((row) => (
+					<div className={cls.tr} key={row.id}>
+						{row.getVisibleCells().map((cell) => (
+							<div className={cls.td} key={cell.id}>
+								{flexRender(cell.column.columnDef.cell, cell.getContext())}
+							</div>
+						))}
 					</div>
-				)}
+				))}
 			</div>
 		</Layout>
 	);
