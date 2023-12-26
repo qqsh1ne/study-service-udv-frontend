@@ -8,3 +8,5 @@ export enum StatusNames {
     Waiting = 'waiting',
     Completed = 'completed'
 };
+
+export const StatusNamesToNums = Object.keys(StatusNames).map((name) => StatusNames[name as keyof typeof StatusNames]);
