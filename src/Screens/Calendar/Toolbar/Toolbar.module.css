@@ -3,19 +3,23 @@
   justify-content: space-between;
 }
 .toolbarWrapper .label {
-  margin: 0;
-  padding: 0;
-  font-family: Helvetica, sans-serif;
+  font-family: Montserrat, sans-serif;
   font-weight: 400;
   font-size: 40px;
 }
-.toolbarWrapper .button {
+.toolbarWrapper .buttons .button {
   padding: 0;
   margin: 0;
   border: none;
 }
-.toolbarWrapper .button:first-child {
+.toolbarWrapper .buttons .button:first-child {
   margin-right: 16px;
+}
+.toolbarWrapper .buttons .button:hover {
+  opacity: 0.8;
+}
+.toolbarWrapper .buttons .button:active {
+  opacity: 0.7;
 }
 
 /*# sourceMappingURL=Toolbar.module.css.map */

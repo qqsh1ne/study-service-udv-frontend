@@ -1,30 +1,34 @@
 import cls from './CustomButton.module.scss';
 import { FC } from 'react';
-import { Button, Form } from 'antd';
+import { Form } from 'antd';
 
 type CustomButtonProps = {
 	children: string;
 	className?: string;
 	width?: number | string;
 	onClick?: () => void;
+	bgColor?: string;
+	color?: string;
 };
 
 const CustomButton: FC<CustomButtonProps> = ({
 	children,
 	className = 'medium',
 	width,
-	onClick
+	onClick,
+	bgColor,
+	color
 }) => {
 	return (
 		<Form.Item>
-			<Button
-				htmlType='submit'
+			<button
+				type='submit'
 				onClick={onClick}
-				style={{ width: width }}
+				style={{ width: width, backgroundColor: bgColor, color: color }}
 				className={`${cls[className]} ${cls.customButton}`}
 			>
 				{children}
-			</Button>
+			</button>
 		</Form.Item>
 	);
 };

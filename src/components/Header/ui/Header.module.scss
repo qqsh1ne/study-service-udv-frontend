@@ -16,13 +16,30 @@
 			display: flex;
 			gap: 80px;
 			padding-top: 42px;
+			a {
+				text-decoration: none;
+				color: white;
+				&:hover {
+					opacity: 0.8;
+				}
+				&:hover {
+					opacity: 0.6;
+				}
+			}
 		}
 		.applicationContainer {
 			padding-top: 26px;
 			.application {
+				border-radius: 4px;
 				color: #f59d0e;
 				border: #f59d0e 1px solid;
 				padding: 16px 24px;
+				&:hover {
+					opacity: 0.8;
+				}
+				&:active {
+					opacity: 0.6;
+				}
 			}
 		}
 
@@ -30,6 +47,14 @@
 			padding-top: 40px;
 			display: flex;
 			gap: 36px;
+			a {
+				&:hover {
+					opacity: 0.8;
+				}
+				&:hover {
+					opacity: 0.6;
+				}
+			}
 		}
 	}
 }

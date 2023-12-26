@@ -1,7 +1,8 @@
 import { FC, useState } from 'react';
-import { Button, Form, Modal, DatePicker } from 'antd';
+import { Form, Modal, DatePicker } from 'antd';
 import CustomInput from '../../../components/ui/CustomInput/CustomInput.tsx';
 import styles from './NewEventForm.module.scss';
+import CustomButton from '../../../components/ui/CustomButton/CustomButton.tsx';
 const { RangePicker } = DatePicker;
 
 interface NewEventProps {
@@ -29,14 +30,29 @@ const NewEventForm: FC<NewEventProps> = ({ onDate, onName, onFinish }) => {
 
 	return (
 		<>
-			<Button onClick={showModal}>Добавить событие</Button>
+			<CustomButton
+				onClick={showModal}
+				width={200}
+				bgColor='#D9D9D9'
+				color='#000000'
+			>
+				Добавить событие
+			</CustomButton>
 			<Modal
-				width={400}
+				width={330}
 				open={isModalOpen}
 				onCancel={handleCancel}
 				footer={() => (
-					<Form.Item>
-						<Button onClick={handleOk}>Добавить</Button>
+					<Form.Item className={styles.addButton}>
+						<CustomButton
+							width={100}
+							className='small'
+							color='#000000'
+							bgColor='#D9D9D9'
+							onClick={handleOk}
+						>
+							Добавить
+						</CustomButton>
 					</Form.Item>
 				)}
 			>
