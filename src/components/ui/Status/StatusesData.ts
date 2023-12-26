@@ -6,8 +6,9 @@ import DocsApproval from '../../../assets/statuses/docsApproval.svg'
 import Payment from '../../../assets/statuses/payment.svg'
 import Waiting from '../../../assets/statuses/waiting.svg'
 import Completed from '../../../assets/statuses/completed.svg'
+import {StatusNames} from "./StatusNames.ts";
 
-export const StatusesData: {[key: string]: {name: string, className: string, icon: string}} = {
+export const StatusesData: {[key in StatusNames]: {name: string, className: string, icon: string}} = {
     approval: { name: 'На согласовании', className: 'approval', icon: Approval },
     rejected: { name: 'Отклонено', className: 'rejected', icon: Rejected },
     new: { name: 'Новая', className: 'new', icon: New },

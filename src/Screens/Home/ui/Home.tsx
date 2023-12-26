@@ -1,12 +1,14 @@
 import Layout from '../../../components/Layout/ui/Layout.tsx';
 import cls from './Home.module.scss';
 import {useReactTable, getSortedRowModel, getCoreRowModel, flexRender} from "@tanstack/react-table";
-import {FC, useState} from "react";
+import {FC, useEffect, useState} from "react";
 import {NavLink} from "react-router-dom";
 import {Path} from "../../../const/path.ts";
 import ReadonlyCell from "../../../components/TableCells/ReadonlyCell/ui/ReadonlyCell.tsx";
-import StatusCell from "../../../components/TableCells/StatusCell/ui/StatusCell.tsx";
 import MemberCell from "../../../components/TableCells/MemberCell/ui/MemberCell.tsx";
+import {useApplicationsList} from "../../../hooks/useApplicationsList.ts";
+import StatusCell from "../../../components/TableCells/StatusCell/ui/StatusCell.tsx";
+import {StatusNamesToNums} from "../../../components/ui/Status/StatusNames.ts";
 
 const columns = [
 	{
@@ -36,18 +38,18 @@ const columns = [
 	},
 ];
 
-const mock = [
-	{
-		id: 3032,
-		courseName: 'Аналитик данных',
-		student: 'krutoymuzhik@trap.com',
-		changer: 'Игнатьев Михаил Николаевич',
-		status: 'new',
-	}
-]
-
 const Home: FC = () => {
-	const [data,] = useState(mock);
+	const list = useApplicationsList();
+
+	const [data, setData] = useState([{}]);
+
+	useEffect(() => {
+		setData(list.map((
+				{id, course_name: courseName,student, changer, status}
+			) => (
+				{id, courseName, student, changer, status: StatusNamesToNums[status as number]}))
+		);
+	}, [list]);
 
 	const table = useReactTable({
 		data,

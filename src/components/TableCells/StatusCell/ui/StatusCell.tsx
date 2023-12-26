@@ -2,10 +2,11 @@ import {FC} from "react";
 import Status from "../../../ui/Status/Status.tsx";
 import {StatusNames} from "../../../ui/Status/StatusNames.ts";
 
-const StatusCell: FC<{ getValue: () => StatusNames }> = ({getValue}) => {
+const StatusCell: FC<{ getValue?: () => StatusNames }> = ({getValue}) => {
     return (
         <>
-            <Status name={getValue()}/>
+            {!getValue && <Status name={StatusNames.Approval}/>}
+            {getValue && <Status name={getValue()}/>}
         </>
     )
 };
