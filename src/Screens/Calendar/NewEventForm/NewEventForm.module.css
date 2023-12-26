@@ -1,5 +1,5 @@
 .content {
-  width: 17.5rem;
+  width: 100%;
   font-family: Montserrat, sans-serif;
 }
 .content .header {
@@ -15,6 +15,11 @@
 }
 .content .inputGroup .inputName {
   margin-bottom: 16px;
+}
+
+.addButton {
+  margin: 0;
+  padding: 0;
 }
 
 /*# sourceMappingURL=NewEventForm.module.css.map */

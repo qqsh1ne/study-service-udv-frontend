@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-import Toolbar from './Toolbar/Toolbar.tsx';
-import cls from './Calendar.module.scss';
+import Toolbar from '../Toolbar/Toolbar.tsx';
+import style from './Calendar.module.scss';
 import Layout from '../../../components/Layout/ui/Layout.tsx';
 import NewEventForm from '../NewEventForm/NewEventForm.tsx';
 
@@ -36,7 +36,7 @@ const CalendarPage = () => {
 
 	return (
 		<Layout>
-			<div className={cls.wrapper}>
+			<div className={style.wrapper}>
 				<Calendar
 					messages={{
 						month: 'Месяц',
@@ -47,10 +47,18 @@ const CalendarPage = () => {
 					views={['month']}
 					localizer={localizer}
 					events={events}
+					style={{ border: 'none' }}
 					startAccessor='start'
 					endAccessor='end'
 					selectable
-					className={cls.calendar}
+					className={style.calendar}
+					eventPropGetter={() => ({
+						style: {
+							color: '#B07007',
+							fontFamily: 'Montserrat, sans-serif',
+							backgroundColor: '#FCDFB1'
+						}
+					})}
 				/>
 				<NewEventForm onDate={onDate} onName={onName} onFinish={handleSelect} />
 			</div>

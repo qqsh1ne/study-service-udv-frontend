@@ -33,9 +33,9 @@ const Header = () => {
 						</NavLink>
 					</div>
 					<div className={cls.secondMenu}>
-						<div>
+						<a>
 							<img src={notification} alt='notifications' />
-						</div>
+						</a>
 						<NavLink to={Path.login} onClick={logout}>
 							<img src={people} alt='people' />
 						</NavLink>
