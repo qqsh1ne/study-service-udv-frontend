@@ -3,7 +3,6 @@ import { useCurrentMutation } from '../../services/authApi.ts';
 import { Outlet, Navigate } from 'react-router-dom';
 import { Path } from '../../const/path.ts';
 import {useGetApplicationListMutation} from "../../services/applicationApi.ts";
-import {useActions} from "../../hooks/useActions.ts";
 
 export const ProtectedRouter = () => {
 	const [currentUser] = useCurrentMutation();

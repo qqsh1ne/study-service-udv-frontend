@@ -1,0 +1,170 @@
+@import "src/consts";
+
+.wrapper {
+  height: calc(100vh - 104px);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+  color: $text-primary;
+  background-color: #EBEBEA;
+}
+
+.header {
+  width: 61.46%;
+  margin: 0 auto;
+  height: 140px;
+  padding-bottom: 24px;
+  display: flex;
+  align-items: end;
+}
+
+.headerWrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  h1 {
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 39.6px;
+  }
+}
+
+.headerBtn {
+  width: 115px;
+  height: 46px;
+  border: 1px solid $button-default;
+  color: $button-default;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+
+  div {
+    width: 18px;
+    height: 18px;
+    background-image: url("../../../assets/arrows/arrow-left.svg");
+  }
+}
+
+.main {
+  width: 100%;
+  height: calc(100% - 140px);
+  display: flex;
+  border-top: 1px solid $disabled;
+}
+
+.info {
+  width: 50.52%;
+  padding-top: 60px;
+  padding-right: 125px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: row-reverse;
+
+  p {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.infoHeader {
+  margin-bottom: 50px;
+  color: $disabled;
+  font-weight: 500;
+}
+
+.infoData {
+  display: grid;
+  font-size: 14px;
+  line-height: 17.5px;
+  grid-template-columns: 180px 275px;
+  grid-column-gap: 20px;
+  grid-row-gap: 34px;
+  margin-bottom: 25px;
+
+  h3 {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.infoFooter {
+  button {
+    width: 182px;
+    height: 46px;
+    border-radius: 4px;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid $button-default;
+    color: $button-default;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+
+    &:hover {
+      border-color: $button-hover;
+      color: $button-hover;
+    }
+
+    &:active {
+      border-color: $button-active;
+      color: $button-active;
+    }
+
+    &:disabled {
+      border-color: $disabled;
+      color: $disabled;
+    }
+
+    img {
+      margin-right: 10px;
+    }
+  }
+}
+
+.comments {
+  width: 49.48%;
+  border-left: 1px solid $disabled;
+}
+
+.newComment {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  height: 52px;
+  padding-left: 18px;
+  padding-right: 14px;
+  background-color: #fff;
+  align-items: center;
+
+  img {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.commentsField {
+  height: calc(100% - 52px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.25;
+}
+
+.newCommentField {
+  height: 24px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22.5px;
+  color: #808285;
+  font-family: 'Montserrat', sans-serif;
+  border: none;
+}

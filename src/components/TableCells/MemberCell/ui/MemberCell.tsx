@@ -6,7 +6,7 @@ const MemberCell: FC<{getValue: () => string}> = ({getValue}) => {
         <div className={cls.cell}>
             <img src="" alt=""/>
             <div className={cls.memberData}>
-                <p className={cls.name}>Иванов Иван Иванович</p>
+                <p className={cls.name}>ФИО будет добавлено позже</p>
                 <p className={cls.email}>{getValue()}</p>
             </div>
         </div>
