@@ -9,6 +9,7 @@ import MemberCell from "../../../components/TableCells/MemberCell/ui/MemberCell.
 import {useApplicationsList} from "../../../hooks/useApplicationsList.ts";
 import StatusCell from "../../../components/TableCells/StatusCell/ui/StatusCell.tsx";
 import {StatusNamesToNums} from "../../../components/ui/Status/StatusNames.ts";
+import {ReactNode} from "react";
 
 const columns = [
 	{
@@ -58,6 +59,7 @@ const Home: FC = () => {
 		getSortedRowModel: getSortedRowModel()
 	});
 
+
 	return (
 		<Layout>
 			<div className={cls.header}>
@@ -71,7 +73,7 @@ const Home: FC = () => {
 					<div className={cls.tr} key={headerGroup.id}>
 						{headerGroup.headers.map((header) => (
 							<div className={cls.th} key={header.id}>
-								{header.column.columnDef.header}
+								{header.column.columnDef.header as ReactNode}
 								{header.column.getCanSort() && !header.column.getIsSorted() && (
 									<span
 										className={cls.sortIcon}
