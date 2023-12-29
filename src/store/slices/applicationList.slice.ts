@@ -13,12 +13,7 @@ const initialState: IApplicationListSchema = {
 export const applicationListSlice = createSlice({
     name: 'applicationList',
     initialState,
-    reducers: {
-        // addApplicationList: (state, {payload}: PayloadAction<IApplicationListResponseItem[]>) => {
-        //     state.applicationList = payload.response;
-        //     // console.log(payload);
-        // }
-    },
+    reducers: {},
     extraReducers: (builder) => {
         builder.addMatcher(
             applicationApi.endpoints.getApplicationList.matchFulfilled,
