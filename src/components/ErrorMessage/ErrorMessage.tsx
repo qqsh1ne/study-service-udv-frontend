@@ -2,12 +2,13 @@ import { Alert } from 'antd';
 
 type Props = {
 	message?: string;
+	className?: string;
 };
 
-export const ErrorMessage = ({ message }: Props) => {
+export const ErrorMessage = ({ message, className }: Props) => {
 	if (!message) {
 		return null;
 	}
 
-	return <Alert message={message} type='error' />;
+	return <Alert className={className} message={message} type='error' />;
 };

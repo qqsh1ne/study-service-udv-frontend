@@ -7,7 +7,7 @@ import Table from './components/DataGridTable/ui/Table.tsx';
 import { Path } from './const/path.ts';
 import CreateApplication from './screens/CreateApplication/ui/CreateApplication.tsx';
 import Home from './screens/Home/ui/Home.tsx';
-import { ProtectedRouter } from './features/ProtectedRouter/ProtectedRouter.tsx';
+import { ProtectedRouter } from './components/ProtectedRouter/ProtectedRouter.tsx';
 import Header from './components/Header/ui/Header.tsx';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
