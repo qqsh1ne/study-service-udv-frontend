@@ -39,5 +39,13 @@
   font-size: 14px;
   margin-bottom: 10px;
 }
+.container .buttonSection {
+  display: flex;
+  justify-content: space-between;
+}
+.container .buttonSection .error {
+  width: 50%;
+  height: 52px;
+}
 
 /*# sourceMappingURL=CreateApplication.module.css.map */
