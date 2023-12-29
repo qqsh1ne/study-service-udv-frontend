@@ -14,7 +14,6 @@ import MemberCell from '../../../components/TableCells/MemberCell/ui/MemberCell.
 import { useApplicationsList } from '../../../hooks/useApplicationsList.ts';
 import StatusCell from '../../../components/TableCells/StatusCell/ui/StatusCell.tsx';
 import { StatusNamesToNums } from '../../../components/ui/Status/StatusNames.ts';
-import { useAppDispatch } from '../../../hooks/hooks.ts';
 
 const columns = [
 	{
