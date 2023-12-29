@@ -16,10 +16,41 @@ interface Event {
 const localizer = momentLocalizer(moment);
 
 const CalendarPage = () => {
-	const [events, setEvents] = useState<Event[]>([]);
+	const mockEvent = [
+		{
+			start: new Date(
+				'Sun Dec 1 2023 05:00:00 GMT+0500 (Екатеринбург, стандартное время)'
+			),
+			end: new Date(
+				'Wed Dec 7 2023 05:00:00 GMT+0500 (Екатеринбург, стандартное время)'
+			),
+			title: 'Курс по аналитике'
+		},
+		{
+			start: new Date(
+				'Sun Dec 14 2023 05:00:00 GMT+0500 (Екатеринбург, стандартное время)'
+			),
+			end: new Date(
+				'Wed Dec 20 2023 05:00:00 GMT+0500 (Екатеринбург, стандартное время)'
+			),
+			title: 'Python разработчик'
+		},
+		{
+			start: new Date(
+				'Sun Dec 25 2023 05:00:00 GMT+0500 (Екатеринбург, стандартное время)'
+			),
+			end: new Date(
+				'Wed Dec 29 2023 05:00:00 GMT+0500 (Екатеринбург, стандартное время)'
+			),
+			title: 'Тестирование'
+		}
+	];
+	const [events, setEvents] = useState<Event[]>(mockEvent);
 	const [title, setTitle] = useState('');
 	const [start, setStart] = useState<Date>();
 	const [end, setEnd] = useState<Date>();
+
+	console.log(start, end);
 
 	const onDate = (startDate: Date, endDate: Date) => {
 		setStart(startDate);
