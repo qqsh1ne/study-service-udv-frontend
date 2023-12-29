@@ -19,10 +19,10 @@ const ApplicationConfirmation: FC = () => {
 					<Status name={StatusNames.New} />
 				</div>
 				<div className={styles.btnsWrapper}>
-					<NavLink to={Path.home} className={styles.toHome}>
+					<NavLink to={Path.home} className={styles.toHome} reloadDocument={true}>
 						На главную
 					</NavLink>
-					<NavLink to={Path.home} className={styles.toApplication}>
+					<NavLink to={`${Path.applications}/${applicationId}`} className={styles.toApplication} reloadDocument={true}>
 						К заявке
 					</NavLink>
 				</div>

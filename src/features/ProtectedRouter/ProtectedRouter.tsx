@@ -13,7 +13,7 @@ export const ProtectedRouter = () => {
 		getApplicationList({
 			access_token: localStorage.getItem('access_token'),
 			limit: 100,
-		})
+		});
 	}, []);
 
 	return token ? <Outlet /> : <Navigate to={Path.login} />;

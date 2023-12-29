@@ -4,5 +4,6 @@ export const Path = {
 	application: '/application',
 	register: '/register',
 	calendar: '/calendar',
-	table: '/table'
+	table: '/table',
+	applications: '/applications',
 } as const;

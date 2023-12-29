@@ -16,7 +16,9 @@ import weekday from 'dayjs/plugin/weekday';
 import localeData from 'dayjs/plugin/localeData';
 import weekOfYear from 'dayjs/plugin/weekOfYear';
 import weekYear from 'dayjs/plugin/weekYear';
+import ApplicationView from "./screens/ApplicationView/ui/ApplicationView.tsx";import 'dayjs/locale/ru.js';
 
+dayjs.locale('ru')
 dayjs.extend(customParseFormat);
 dayjs.extend(advancedFormat);
 dayjs.extend(weekday);
@@ -34,6 +36,9 @@ function App() {
 					<Route path={Path.table} element={<Table />} />
 					<Route path={Path.home} element={<Home />} />
 					<Route path={Path.application} element={<CreateApplication />} />
+					<Route path={Path.applications}>
+						<Route path={':id'} element={<ApplicationView/>}/>
+					</Route>
 				</Route>
 				<Route path={Path.login} element={<Login />} />
 			</Routes>

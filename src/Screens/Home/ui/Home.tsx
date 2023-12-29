@@ -2,7 +2,7 @@ import Layout from '../../../components/Layout/ui/Layout.tsx';
 import cls from './Home.module.scss';
 import {useReactTable, getSortedRowModel, getCoreRowModel, flexRender} from "@tanstack/react-table";
 import {FC, useEffect, useState} from "react";
-import {NavLink} from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
 import {Path} from "../../../const/path.ts";
 import ReadonlyCell from "../../../components/TableCells/ReadonlyCell/ui/ReadonlyCell.tsx";
 import MemberCell from "../../../components/TableCells/MemberCell/ui/MemberCell.tsx";
@@ -40,6 +40,7 @@ const columns = [
 ];
 
 const Home: FC = () => {
+	const navigation = useNavigate();
 	const list = useApplicationsList();
 
 	const [data, setData] = useState([{}]);
@@ -97,14 +98,18 @@ const Home: FC = () => {
 					</div>
 				))}
 				{table.getRowModel().rows.map((row) => (
-					<div className={cls.tr} key={row.id}>
-						{row.getVisibleCells().map((cell) => (
-							<div className={cls.td} key={cell.id}>
-								{flexRender(cell.column.columnDef.cell, cell.getContext())}
-							</div>
-						))}
-					</div>
-				))}
+						<div className={cls.tr} key={row.id}
+							 // @ts-ignore
+							 onClick={() => navigation(`${Path.applications}/${row.original.id}`)}>
+							{row.getVisibleCells().map((cell) => {
+								return (
+									<div className={cls.td} key={cell.id}>
+										{flexRender(cell.column.columnDef.cell, cell.getContext())}
+									</div>
+								);
+							})}
+						</div>
+					))}
 			</div>
 		</Layout>
 	);
