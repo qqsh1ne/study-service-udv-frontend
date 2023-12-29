@@ -38,4 +38,12 @@
 			}
 		}
 	}
+	.buttonSection {
+		display: flex;
+		justify-content: space-between;
+		.error {
+			width: 50%;
+			height: 52px;
+		}
+	}
 }

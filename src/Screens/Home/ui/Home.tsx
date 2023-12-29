@@ -1,15 +1,19 @@
 import Layout from '../../../components/Layout/ui/Layout.tsx';
 import cls from './Home.module.scss';
-import {useReactTable, getSortedRowModel, getCoreRowModel, flexRender} from "@tanstack/react-table";
-import {FC, useEffect, useState} from "react";
-import {NavLink, useNavigate} from "react-router-dom";
-import {Path} from "../../../const/path.ts";
-import ReadonlyCell from "../../../components/TableCells/ReadonlyCell/ui/ReadonlyCell.tsx";
-import MemberCell from "../../../components/TableCells/MemberCell/ui/MemberCell.tsx";
-import {useApplicationsList} from "../../../hooks/useApplicationsList.ts";
-import StatusCell from "../../../components/TableCells/StatusCell/ui/StatusCell.tsx";
-import {StatusNamesToNums} from "../../../components/ui/Status/StatusNames.ts";
-import {ReactNode} from "react";
+	import {
+	useReactTable,
+	getSortedRowModel,
+	getCoreRowModel,
+	flexRender
+} from '@tanstack/react-table';
+import { FC, useEffect, useState, ReactNode } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { Path } from '../../../const/path.ts';
+import ReadonlyCell from '../../../components/TableCells/ReadonlyCell/ui/ReadonlyCell.tsx';
+import MemberCell from '../../../components/TableCells/MemberCell/ui/MemberCell.tsx';
+import { useApplicationsList } from '../../../hooks/useApplicationsList.ts';
+import StatusCell from '../../../components/TableCells/StatusCell/ui/StatusCell.tsx';
+import { StatusNamesToNums } from '../../../components/ui/Status/StatusNames.ts';
 
 const columns = [
 	{
@@ -42,14 +46,17 @@ const columns = [
 const Home: FC = () => {
 	const navigation = useNavigate();
 	const list = useApplicationsList();
-
 	const [data, setData] = useState([{}]);
 
 	useEffect(() => {
-		setData(list.map((
-				{id, course_name: courseName,student, changer, status}
-			) => (
-				{id, courseName, student, changer, status: StatusNamesToNums[status as number]}))
+		setData(
+			list.map(({ id, course_name: courseName, student, changer, status }) => ({
+				id,
+				courseName,
+				student,
+				changer,
+				status: StatusNamesToNums[status as number]
+			}))
 		);
 	}, [list]);
 

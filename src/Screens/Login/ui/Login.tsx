@@ -1,6 +1,6 @@
 import { Checkbox, Form, Input } from 'antd';
 import { FC, useEffect, useState } from 'react';
-import cls from './Login.module.scss';
+import styles from './Login.module.scss';
 import CustomButton from '../../../components/ui/CustomButton/CustomButton.tsx';
 import CustomInput from '../../../components/ui/CustomInput/CustomInput.tsx';
 import { UserSchema } from '../model/types/authSchema.ts';
@@ -8,6 +8,7 @@ import { useLoginMutation } from '../../../services/authApi.ts';
 import { NavigateFunction, useNavigate } from 'react-router-dom';
 import { ErrorMessage } from '../../../components/ErrorMessage/ErrorMessage.tsx';
 import { useDebounce } from '../../../hooks/useDebounce.ts';
+import { Gradient } from '../../../components/Gradient/Gradient.tsx';
 
 // testuser@test.com
 // qwerty123
@@ -38,44 +39,49 @@ const Login: FC = () => {
 
 	const debouncedLogin = useDebounce(login, 1000);
 	return (
-		<Form onFinish={debouncedLogin} className={cls.wrapper}>
-			<div className={cls.container}>
-				<div className={cls.header}>Авторизация</div>
-				<Form.Item className={cls.input}>
-					<div className={cls.inputType}>Email</div>
-					<CustomInput
-						name='Email'
-						type='email'
-						onChange={(e) => setEmail(e.target.value)}
-					/>
-				</Form.Item>
-				<div className={cls.input}>
-					<div className={cls.inputType}>Пароль</div>
-					<Form.Item
-						name='password'
-						rules={[{ required: true, message: 'Обязательное поле' }]}
-					>
-						<Input.Password
-							type='password'
-							onChange={(e) => setPassword(e.target.value)}
+		<div className={styles.content}>
+			<div className={styles.gradient}>
+				<Gradient />
+			</div>
+			<Form onFinish={debouncedLogin} className={styles.wrapper}>
+				<div className={styles.container}>
+					<div className={styles.header}>Авторизация</div>
+					<Form.Item className={styles.input}>
+						<div className={styles.inputType}>Email</div>
+						<CustomInput
+							name='Email'
+							type='email'
+							onChange={(e) => setEmail(e.target.value)}
 						/>
 					</Form.Item>
-				</div>
-				<div className={cls.pass}>
-					<div className={cls.checkbox}>
-						<Checkbox />
-						<div>Запомнить</div>
+					<div className={styles.input}>
+						<div className={styles.inputType}>Пароль</div>
+						<Form.Item
+							name='password'
+							rules={[{ required: true, message: 'Обязательное поле' }]}
+						>
+							<Input.Password
+								type='password'
+								onChange={(e) => setPassword(e.target.value)}
+							/>
+						</Form.Item>
 					</div>
-					<div>Забыли пароль?</div>
+					<div className={styles.pass}>
+						<div className={styles.checkbox}>
+							<Checkbox />
+							<div>Запомнить</div>
+						</div>
+						<div>Забыли пароль?</div>
+					</div>
+					<Form.Item>
+						<CustomButton className='medium' width='100%'>
+							Войти
+						</CustomButton>
+					</Form.Item>
+					<ErrorMessage message={error} />
 				</div>
-				<Form.Item>
-					<CustomButton className='medium' width='100%'>
-						Войти
-					</CustomButton>
-				</Form.Item>
-				<ErrorMessage message={error} />
-			</div>
-		</Form>
+			</Form>
+		</div>
 	);
 };
 

@@ -3,15 +3,17 @@ import { authReducer } from '../screens/Login/model/slices/authSlice.ts';
 import { api } from '../services/api.ts';
 import { listenerMiddleware } from '../screens/Login/model/middleware/auth.ts';
 import { applicationReducer } from '../screens/CreateApplication/model/slices/applicationSlice.ts';
-import { reducer as applicationListReducer } from "./slices/applicationList.slice.ts";
-import {reducer as usersListReducer} from "../screens/Home/model/slices/usersList.slice.ts";
+import { reducer as applicationListReducer } from './slices/applicationList.slice.ts';
+import { reducer as usersListReducer } from "../screens/Home/model/slices/usersList.slice.ts";
+import { coursesReducer } from './slices/CoursesSlice/coursesSlice.ts';
 
 const rootReducer = combineReducers({
 	[api.reducerPath]: api.reducer,
 	auth: authReducer,
 	application: applicationReducer,
 	applicationList: applicationListReducer,
-	usersList: usersListReducer
+	usersList: usersListReducer,
+	courses: coursesReducer
 });
 
 export const setupStore = () => {

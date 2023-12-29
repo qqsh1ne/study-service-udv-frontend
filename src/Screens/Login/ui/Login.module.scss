@@ -1,6 +1,13 @@
+.content {
+	display: flex;
+	gap: 200px;
+}
+.gradient {
+	width: 1200px;
+	height: 1080px;
+}
 .wrapper {
 	margin-top: 200px;
-	margin-right: 200px;
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 400;
 	display: flex;

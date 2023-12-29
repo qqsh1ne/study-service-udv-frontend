@@ -9,6 +9,7 @@ import { useAppSelector } from '../../../../hooks/hooks.ts';
 import { getApplicationId } from '../../model/selectors/applicationSelector.ts';
 
 const ApplicationConfirmation: FC = () => {
+	// @ts-ignore
 	const applicationId = useAppSelector(getApplicationId);
 	return (
 		<Layout>

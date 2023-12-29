@@ -1,116 +1,74 @@
-.image {
-  height: 1080px;
-  width: 1200px;
+/* Rectangle 1 */
+/* Rectangle */
+/* Group 200 */
+.gr1 {
+  position: absolute;
+  width: 1094.47px;
+  height: 983.51px;
+  mix-blend-mode: color-dodge;
+  filter: blur(100px);
 }
 
-.image .rectangle {
-  height: 1080px;
-  left: 0;
-  mix-blend-mode: overlay;
-  position: fixed;
-  top: 0;
-  width: 1200px;
+/* Vector */
+.vector1 {
+  position: absolute;
+  width: 592.34px;
+  height: 461.74px;
+  background: #7e13ab;
+  transform: matrix(0.68, -0.73, 0.84, 0.55, 0, 0);
 }
 
-:root {
-  --bgprimary: rgba(235, 235, 234, 1);
-  --bgsecondary: rgba(43, 42, 41, 1);
-  --bgsecondary-2: rgba(255, 251, 252, 1);
-  --buttonalternativedisable: rgba(175, 176, 176, 1);
-  --buttonalternativehover: rgba(197, 255, 237, 1);
-  --buttonalternativepressed: rgba(0, 168, 123, 1);
-  --buttonalternativerest: rgba(0, 210, 157, 1);
-  --buttoncleardisable: rgba(217, 217, 217, 1);
-  --buttonclearhover: rgba(255, 255, 255, 1);
-  --buttonclearpressed: rgba(235, 235, 234, 1);
-  --buttonclearrest: rgba(255, 255, 255, 1);
-  --buttondefault-outlinedisable: rgba(175, 176, 176, 1);
-  --buttondefault-outlinehover: rgba(255, 177, 34, 1);
-  --buttondefault-outlinepressed: rgba(225, 137, 0, 1);
-  --buttondefault-outlinerest: rgba(245, 157, 14, 1);
-  --montserrat-button-l-18px-font-family: "Montserrat-Medium", Helvetica;
-  --montserrat-button-l-18px-font-size: 18px;
-  --montserrat-button-l-18px-font-style: normal;
-  --montserrat-button-l-18px-font-weight: 500;
-  --montserrat-button-l-18px-letter-spacing: 0px;
-  --montserrat-button-l-18px-line-height: 125%;
-  --montserrat-button-m-16px-font-family: "Montserrat-Medium", Helvetica;
-  --montserrat-button-m-16px-font-size: 16px;
-  --montserrat-button-m-16px-font-style: normal;
-  --montserrat-button-m-16px-font-weight: 500;
-  --montserrat-button-m-16px-letter-spacing: 0px;
-  --montserrat-button-m-16px-line-height: 125%;
-  --montserrat-button-s-14px-font-family: "Montserrat-Medium", Helvetica;
-  --montserrat-button-s-14px-font-size: 14px;
-  --montserrat-button-s-14px-font-style: normal;
-  --montserrat-button-s-14px-font-weight: 500;
-  --montserrat-button-s-14px-letter-spacing: 0px;
-  --montserrat-button-s-14px-line-height: 125%;
-  --montserrat-heading-20px-font-family: "Montserrat-Regular", Helvetica;
-  --montserrat-heading-20px-font-size: 20px;
-  --montserrat-heading-20px-font-style: normal;
-  --montserrat-heading-20px-font-weight: 400;
-  --montserrat-heading-20px-letter-spacing: 0px;
-  --montserrat-heading-20px-line-height: 110.00000238418579%;
-  --montserrat-heading-28px-font-family: "Montserrat-Regular", Helvetica;
-  --montserrat-heading-28px-font-size: 28px;
-  --montserrat-heading-28px-font-style: normal;
-  --montserrat-heading-28px-font-weight: 400;
-  --montserrat-heading-28px-letter-spacing: 0px;
-  --montserrat-heading-28px-line-height: 110.00000238418579%;
-  --montserrat-heading-36px-font-family: "Montserrat-Regular", Helvetica;
-  --montserrat-heading-36px-font-size: 36px;
-  --montserrat-heading-36px-font-style: normal;
-  --montserrat-heading-36px-font-weight: 400;
-  --montserrat-heading-36px-letter-spacing: 0px;
-  --montserrat-heading-36px-line-height: 110.00000238418579%;
-  --montserrat-subtext-12px-font-family: "Montserrat-Regular", Helvetica;
-  --montserrat-subtext-12px-font-size: 12px;
-  --montserrat-subtext-12px-font-style: normal;
-  --montserrat-subtext-12px-font-weight: 400;
-  --montserrat-subtext-12px-letter-spacing: 0px;
-  --montserrat-subtext-12px-line-height: 125%;
-  --montserrat-text-l-18px-font-family: "Montserrat-Regular", Helvetica;
-  --montserrat-text-l-18px-font-size: 18px;
-  --montserrat-text-l-18px-font-style: normal;
-  --montserrat-text-l-18px-font-weight: 400;
-  --montserrat-text-l-18px-letter-spacing: 0px;
-  --montserrat-text-l-18px-line-height: 125%;
-  --montserrat-text-m-16px-font-family: "Montserrat-Regular", Helvetica;
-  --montserrat-text-m-16px-font-size: 16px;
-  --montserrat-text-m-16px-font-style: normal;
-  --montserrat-text-m-16px-font-weight: 400;
-  --montserrat-text-m-16px-letter-spacing: 0px;
-  --montserrat-text-m-16px-line-height: 125%;
-  --montserrat-text-s-14px-font-family: "Montserrat-Regular", Helvetica;
-  --montserrat-text-s-14px-font-size: 14px;
-  --montserrat-text-s-14px-font-style: normal;
-  --montserrat-text-s-14px-font-weight: 400;
-  --montserrat-text-s-14px-letter-spacing: 0px;
-  --montserrat-text-s-14px-line-height: 125%;
-  --optionalerror: rgba(231, 29, 54, 1);
-  --shadow-input-default: 0px 0px 0px 4px rgba(245, 157, 14, 0.3), 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
-  --shadow-input-dropdown: 0px 4px 6px -2px rgba(16, 24, 40, 0.03), 0px 12px 16px -4px rgba(16, 24, 40, 0.08);
-  --shadow-input-error: 0px 0px 0px 4px rgba(231, 29, 54, 0.3), 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
-  --statusagreedbg: rgba(211, 229, 239, 1);
-  --statusagreedtext: rgba(91, 109, 119, 1);
-  --statusapproval-of-documentsbg: rgba(232, 222, 238, 1);
-  --statusapproval-of-documentstext: rgba(112, 102, 118, 1);
-  --statusexpectationbg: rgba(245, 224, 233, 1);
-  --statusexpectationtext: rgba(135, 114, 123, 1);
-  --statusnewbg: rgba(250, 222, 201, 1);
-  --statusnewtext: rgba(130, 102, 81, 1);
-  --statuspassedbg: rgba(219, 237, 219, 1);
-  --statuspassedtext: rgba(109, 127, 109, 1);
-  --statuspaymentbg: rgba(238, 224, 218, 1);
-  --statuspaymenttext: rgba(128, 114, 108, 1);
-  --statusrejectedbg: rgba(255, 226, 221, 1);
-  --statusrejectedtext: rgba(135, 106, 101, 1);
-  --statusworkbg: rgba(253, 236, 200, 1);
-  --statusworktext: rgba(133, 116, 80, 1);
-  --textprimary: rgba(43, 42, 41, 1);
-  --textsecondary: rgba(255, 255, 255, 1);
-  --textsubtext: rgba(175, 176, 176, 1);
+/* Vector */
+.vector2 {
+  position: absolute;
+  width: 670.72px;
+  height: 265.26px;
+  background: #00d29d;
+  transform: matrix(-0.92, -0.39, 0.29, -0.96, 0, 0);
+}
+
+/* Vector */
+.vector3 {
+  position: absolute;
+  width: 791.38px;
+  height: 356.72px;
+  background: #f89c1c;
+  transform: rotate(-93.1deg);
+}
+
+/* Group 199 */
+.gr2 {
+  position: absolute;
+  width: 1160.47px;
+  height: 1023px;
+  filter: blur(100px);
+}
+
+/* Vector */
+.vector4 {
+  position: absolute;
+  width: 592.34px;
+  height: 461.74px;
+  background: #7e13ab;
+  transform: matrix(0.68, -0.73, 0.84, 0.55, 0, 0);
+}
+
+/* Vector */
+.vector5 {
+  position: absolute;
+  width: 670.72px;
+  height: 265.26px;
+  background: #00d29d;
+  transform: matrix(-0.92, -0.39, 0.29, -0.96, 0, 0);
+}
+
+/* Vector */
+.vector6 {
+  position: absolute;
+  width: 791.38px;
+  height: 356.72px;
+  background: #f89c1c;
+  transform: rotate(-93.1deg);
 }
 
 /*# sourceMappingURL=Gradient.module.css.map */

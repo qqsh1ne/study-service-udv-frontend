@@ -1,26 +1,35 @@
 import { FC, useState } from 'react';
-import { DatePicker, Form, Input } from 'antd';
+import { DatePicker, Form, Input, Select } from 'antd';
 import cls from './CreateApplication.module.scss';
 import Layout from '../../../components/Layout/ui/Layout.tsx';
 import CustomButton from '../../../components/ui/CustomButton/CustomButton.tsx';
 import CustomInput from '../../../components/ui/CustomInput/CustomInput.tsx';
 import { useAddMutation } from '../../../services/applicationApi.ts';
-import { useAppDispatch } from '../../../hooks/hooks.ts';
-import { applicationActions } from '../model/slices/applicationSlice.ts';
+import { useAppSelector } from '../../../hooks/hooks.ts';
 import ApplicationConfirmation from '../ApplicationConfirm/ui/ApplicationConfirm.tsx';
+import { getCourses } from '../../../store/selectors/coursesSelector.ts';
+import { ErrorMessage } from '../../../components/ErrorMessage/ErrorMessage.tsx';
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
 
+interface CoursesSchema {
+	value: string;
+	label: string;
+}
 const CreateApplication: FC = () => {
 	const [addApplication] = useAddMutation();
+	// @ts-ignore
+	const courses = useAppSelector(getCourses);
+
 	const [email, setEmail] = useState('');
 	const [courseName, setCourseName] = useState('');
 	const [cost, setCost] = useState(0);
 	const [point, setPoint] = useState('');
 	const [startDate, setStartDate] = useState('');
 	const [endDate, setEndDate] = useState('');
+
 	const [isConfirm, setIsConfirm] = useState(false);
-	const dispatch = useAppDispatch();
+	const [errorMessage, setErrorMessage] = useState('');
 
 	const application = {
 		course_name: courseName,
@@ -32,15 +41,24 @@ const CreateApplication: FC = () => {
 		access_token: localStorage.getItem('access_token')
 	};
 
+	const coursesList: CoursesSchema[] = [];
+	courses.forEach((course) => {
+		coursesList.push({ value: course, label: course });
+	});
+
 	const createApplication = async () => {
 		try {
-			dispatch(applicationActions.createApplication(application));
 			await addApplication(application);
 			setIsConfirm(true);
 		} catch (e) {
-			console.log('her');
+			setErrorMessage('Неизвестная ошибка');
 		}
 	};
+
+	const filterOption = (
+		input: string,
+		option?: { label: string; value: string }
+	) => (option?.label ?? '').toLowerCase().includes(input.toLowerCase());
 
 	const onFinishFailed = (errorInfo: any) => {
 		console.log('Failed:', errorInfo);
@@ -84,10 +102,16 @@ const CreateApplication: FC = () => {
 					<h2 className={cls.fieldName}>Об обучении</h2>
 					<div className={cls.inputSection}>
 						<div className={cls.inputName}>Название курса</div>
-						<CustomInput
-							name='CourseName'
-							onChange={(e) => setCourseName(e.target.value)}
-						/>
+						<Form.Item name='Course'>
+							<Select
+								showSearch
+								style={{ width: '100%' }}
+								optionFilterProp='children'
+								onChange={(value: string) => setCourseName(value)}
+								filterOption={filterOption}
+								options={coursesList}
+							/>
+						</Form.Item>
 					</div>
 					<div className={cls.flex}>
 						<div className={cls.inputSection}>
@@ -121,9 +145,12 @@ const CreateApplication: FC = () => {
 					<h2 className={cls.fieldName}>Комментарий</h2>
 					<TextArea className={cls.commentField} />
 				</Form.Item>
-				<CustomButton width={156} className='medium'>
-					Отправить
-				</CustomButton>
+				<section className={cls.buttonSection}>
+					<CustomButton width={156} className='medium'>
+						Отправить
+					</CustomButton>
+					<ErrorMessage className={cls.error} message={errorMessage} />
+				</section>
 			</Form>
 		</Layout>
 	) : (

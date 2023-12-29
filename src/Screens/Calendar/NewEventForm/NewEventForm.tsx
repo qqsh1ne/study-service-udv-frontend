@@ -1,18 +1,26 @@
 import { FC, useState } from 'react';
-import { Form, Modal, DatePicker } from 'antd';
-import CustomInput from '../../../components/ui/CustomInput/CustomInput.tsx';
+import { Form, Modal, DatePicker, Select } from 'antd';
 import styles from './NewEventForm.module.scss';
 import CustomButton from '../../../components/ui/CustomButton/CustomButton.tsx';
+import { useAppSelector } from '../../../hooks/hooks.ts';
+import { getCourses } from '../../../store/selectors/coursesSelector.ts';
 const { RangePicker } = DatePicker;
 
 interface NewEventProps {
-	onName: (e: any) => void;
+	onName: (value: string) => void;
 	onDate: (startDate: Date, endDate: Date) => void;
 	onFinish: () => void;
 }
 
+interface CoursesSchema {
+	value: string;
+	label: string;
+}
+
 const NewEventForm: FC<NewEventProps> = ({ onDate, onName, onFinish }) => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
+	// @ts-ignore
+	const courses = useAppSelector(getCourses);
 
 	const showModal = () => {
 		setIsModalOpen(true);
@@ -27,6 +35,16 @@ const NewEventForm: FC<NewEventProps> = ({ onDate, onName, onFinish }) => {
 	const handleCancel = () => {
 		setIsModalOpen(false);
 	};
+
+	const filterOption = (
+		input: string,
+		option?: { label: string; value: string }
+	) => (option?.label ?? '').toLowerCase().includes(input.toLowerCase());
+
+	const coursesList: CoursesSchema[] = [];
+	courses.forEach((course) => {
+		coursesList.push({ value: course, label: course });
+	});
 
 	return (
 		<>
@@ -60,7 +78,14 @@ const NewEventForm: FC<NewEventProps> = ({ onDate, onName, onFinish }) => {
 					<h1 className={styles.header}>События</h1>
 					<div className={styles.inputGroup}>
 						<p className={styles.inputName}>Название</p>
-						<CustomInput onChange={onName} />
+						<Select
+							showSearch
+							style={{ width: '100%' }}
+							optionFilterProp='children'
+							onChange={(value: string) => onName(value)}
+							filterOption={filterOption}
+							options={coursesList}
+						/>
 					</div>
 					<div className={styles.inputGroup}>
 						<p className={styles.inputName}>Дата</p>

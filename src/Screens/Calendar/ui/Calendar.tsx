@@ -20,14 +20,13 @@ const CalendarPage = () => {
 	const [title, setTitle] = useState('');
 	const [start, setStart] = useState<Date>();
 	const [end, setEnd] = useState<Date>();
-	console.log(start, end);
-	console.log(events);
+
 	const onDate = (startDate: Date, endDate: Date) => {
 		setStart(startDate);
 		setEnd(endDate);
 	};
-	const onName = (e: any) => {
-		setTitle(e.target.value);
+	const onName = (value: string) => {
+		setTitle(value);
 	};
 	const handleSelect = () => {
 		const newEvent = { start, end, title };
@@ -38,11 +37,6 @@ const CalendarPage = () => {
 		<Layout>
 			<div className={style.wrapper}>
 				<Calendar
-					messages={{
-						month: 'Месяц',
-						week: 'Неделя',
-						day: 'День'
-					}}
 					components={{ toolbar: Toolbar }}
 					views={['month']}
 					localizer={localizer}
