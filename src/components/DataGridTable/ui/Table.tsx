@@ -8,7 +8,7 @@ import {
     useReactTable
 } from "@tanstack/react-table";
 import {rows} from "../TableMock.ts";
-import React, {useState} from "react";
+import React, {ReactNode, useState} from "react";
 import styles from './Table.module.scss'
 import TableHeader from "../TableHeader/ui/TableHeader.tsx";
 import TablePagination from "../TablePagination/ui/TablePagination.tsx";
@@ -156,7 +156,7 @@ const Table: React.FC = () => {
                             {headerGroup.headers.map(
                                 header =>
                                     <Box className={styles.th} key={header.id}>
-                                        {header.column.columnDef.accessorKey === 'checkbox' ? getCheckBox() : header.column.columnDef.header}
+                                        {header.column.columnDef.accessorKey === 'checkbox' ? getCheckBox() : header.column.columnDef.header as ReactNode}
                                         {header.column.getCanSort() && !header.column.getIsSorted() && (
                                             <span
                                                 className={styles.sortIcon}
